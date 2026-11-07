@@ -1,0 +1,11 @@
+# guedes_CG004: printed cubic coordinate words do not follow from the paper's own definitions (11-05)
+
+UNVERIFIED reproduction finding from the Guedes board job (friends_board_guedes_1103, computed 11-03 on a pod, before the 11-05 incident). Not an improvement claim; a possible erratum.
+
+Paper: Guedes, Oriti and Raasakka, "Quantization maps, algebra representation and non-commutative Fourier transform for Lie groups", J. Math. Phys. 54, 083508 (2013), arXiv:1301.7750. Section 5.2 (5.2.1 symmetric map, 5.2.2 Duflo map, 5.2.3 Freidel-Livine-Majid map) displays coordinate-word expansions up to cubic order, journal pp. 083508-23 and -24 (arXiv pp. 25-26). Normalization: [X_i, X_j] = 2 i epsilon_ijk X_k.
+
+Claim: the quadratic words agree in all three maps and the FLM cubics agree in all 27 cases, but the displayed symmetric cubics disagree with the map's own definition in 9 of 27 cases and the Duflo cubics in 15 of 27. Calculated minus displayed: symmetric -delta_ik X_j; Duflo -delta_ik X_j - (i/3) epsilon_ijk. Simplest witness, i=j=k=1 (no epsilon terms): symmetric displayed X1^3+X1 vs S^-1(Xhat1^3)=X1^3 by definition; Duflo displayed X1^3 vs X1^3 - X1 from D = S o j^(1/2)(d), j^(1/2) = 1 + Delta/6 + ..., Delta X1^3 = 6 X1 (also from the plane wave (t/sin t) exp(i t X1)); FLM displayed X1^3+X1 matches exp(i sin(t) X1).
+
+Evidence (read-only): friends_board_guedes_1103/REPRODUCTION_FINDING.md, its artifacts/ (baseline_verification.json, word_verification.json, control_verification.json, rendered journal/arXiv page images, source_manifest.json), search_words.py and verify_words.py.
+
+Referee the exact claim: download the paper fresh (arXiv and, if reachable, the journal version), transcribe the displayed quadratic and cubic lists yourself, and recompute each from the paper's definitions with your own exact code (no import of the board's scripts). Check the normalization and conventions the paper actually uses (ordering, factors of i, the meaning of the displayed polynomial symbols), and whether any convention makes the displayed cubics correct. Report per map how many of the 27 cubics agree. Also check whether a published erratum or later version already corrects them. End HOLDS (the displayed cubics are wrong under the paper's own definitions), HOLDS WITH CAVEATS, or FAILS (they are right under the paper's conventions).

@@ -54,10 +54,17 @@ Brian Armstrong's November 7 [post](https://x.com/brian_armstrong/status/2119150
 - **Found:** 4 confirmed bugs on a fresh clone. The top one: KITE-tools prints the temperature read from the file and then ignores it in both optical-conductivity branches, so finite-temperature optical results are computed at the wrong temperature. Also: a nonzero onsite energy shift invents interorbital couplings even for diagonal matrices; the documented Green LDOS kernel is too large by a factor of π; a non-divisible moment count silently loses its remainder across threads. One further candidate was judged intended behaviour and dropped.
 - **Checked:** a separate referee reproduced each on its own clone, reading only the claim document — [verdicts and ranking](friends/ferreira-kite/VERDICTS.md), [patch](friends/ferreira-kite/combined.patch).
 
+### Carlos Guedes — Duflo and symmetric quantization maps, a correction
+
+- **Paper:** Guedes, Oriti and Raasakka, *Quantization maps, algebra representation and non-commutative Fourier transform for Lie groups*, *J. Math. Phys.* 54 (2013), [arXiv:1301.7750](https://arxiv.org/abs/1301.7750), section 5.2.
+- **Found:**
+  - **CG004 (HOLDS):** the printed symmetric and Duflo cubic examples don't follow from the paper's own defining maps. An erratum-type result, read against the arXiv v2 and the journal version.
+  - **CG456 (HOLDS):** the corrected and extended coordinate-word table through length 4; all 360 inverse images agree exactly with an independent rebuild.
+- **Honest framing:** a correction to worked examples, not to the paper's main construction. [Claims and verdicts](friends/guedes-flm-identities/).
+
 ## Not here
 
 - Results that have not been sent to the author they concern.
-- One erratum-type result about a co-author's paper, held until he replies.
 - Mathematics that happens to be done by physicists lives in the [math hub](https://github.com/rpinho/math-certificates); the TESS exoplanet search lives in [planet-hunt](https://github.com/rpinho/planet-hunt).
 
 ## How this was run
