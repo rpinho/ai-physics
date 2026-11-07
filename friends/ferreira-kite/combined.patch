@@ -1,0 +1,93 @@
+diff --git a/kite.py b/kite.py
+index 66e0991..ddab9d8 100644
+--- a/kite.py
++++ b/kite.py
+@@ -1186,8 +1186,10 @@ def config_system(lattice, config, calculation, modification=None, **kwargs):
+     # loop through all hoppings
+     for name, hop in lattice.hoppings.items():
+         imag_part += np.linalg.norm(np.asarray(hop.energy).imag)
++    for sub in lattice.sublattices.values():
++        imag_part += np.linalg.norm(np.asarray(sub.energy).imag)
+     if imag_part > 0 and complx == 0:
+-        print('Complex hoppings are added but is_complex identifier is 0. Automatically turning is_complex to 1!')
++        print('Complex Hamiltonian terms are added but is_complex identifier is 0. Automatically turning is_complex to 1!')
+         config._is_complex = 1
+         config.set_type()
+ 
+@@ -1258,7 +1260,8 @@ def config_system(lattice, config, calculation, modification=None, **kwargs):
+         # energy shift is substracted from onsite potential, this is later added to the hopping dictionary,
+         # hopping terms shouldn't be substracted
+         hopping = {'relative_index': np.zeros(space_size, dtype=np.int32), 'from_id': sub.alias_id,
+-                   'to_id': sub.alias_id, 'hopping_energy': sub.energy - config.energy_shift}
++                   'to_id': sub.alias_id,
++                   'hopping_energy': sub.energy - config.energy_shift * np.eye(num_energies)}
+         hoppings.append(hopping)
+ 
+     # num_orbitals = np.asarray(num_orbitals)
+diff --git a/tools/Src/OptCond_1order/conductivity_optical.cpp b/tools/Src/OptCond_1order/conductivity_optical.cpp
+index da46d94..1821eb4 100644
+--- a/tools/Src/OptCond_1order/conductivity_optical.cpp
++++ b/tools/Src/OptCond_1order/conductivity_optical.cpp
+@@ -177,7 +177,8 @@ bool conductivity_optical<T, DIM>::fetch_parameters(){
+ 	debug_message("Fetching NumMoments, Temperature and NumPoints.\n");
+   // Fetch the number of Chebyshev Moments, temperature and number of points
+ 	get_hdf5(&MaxMoments, &file, (char*)(dirName+"NumMoments").c_str());	
+-	get_hdf5(&temperature, &file, (char*)(dirName+"Temperature").c_str());	
++	get_hdf5(&temperature, &file, (char*)(dirName+"Temperature").c_str());
++  beta = 1.0/temperature;	
+ 	get_hdf5(&NumPoints, &file, (char*)(dirName+"NumPoints").c_str());	
+ 
+   NumMoments = MaxMoments;
+diff --git a/tools/Src/Spectral/ldos.cpp b/tools/Src/Spectral/ldos.cpp
+index dfcc753..22511ab 100644
+--- a/tools/Src/Spectral/ldos.cpp
++++ b/tools/Src/Spectral/ldos.cpp
+@@ -242,13 +242,14 @@ void ldos<U, DIM>::calculate(){
+   {
+ #pragma omp critical
+     {
+-      int localN = NumMoments/systemInfo->NumThreads;
+-      //int localN = NumMoments;
+       int thread_id = omp_get_thread_num();
++      int num_threads = omp_get_num_threads();
++      int first = NumMoments*thread_id/num_threads;
++      int localN = NumMoments*(thread_id+1)/num_threads - first;
+       //std::cout << "thread_id: " << thread_id << "\n";
+       //std::cout << "NumMoments: " << localN << "\n";
+       //thread_id = 0;
+-      long offset = thread_id*localN*NumPositions;
++      long offset = first*NumPositions;
+       Eigen::Map<Eigen::Matrix<std::complex<U>, -1, -1, Eigen::RowMajor>> locallMU(OrderedMU.data() + offset, localN, NumPositions);
+       
+       //std::cout << "locallMU: \n" << locallMU << "\n";
+@@ -261,8 +262,8 @@ void ldos<U, DIM>::calculate(){
+       if(kernel == "jackson"){
+ 	for(int i = 0; i < NumEnergies; i++){
+ 	  for(int m = 0; m < localN; m++){
+-	    factor = 1.0/(1.0 + U((m + thread_id*localN)==0));
+-	    GammaE(i,m) += delta(m + thread_id*localN,energies(i))*kernel_jackson<U>(m + thread_id*localN, NumMoments)*factor;
++	    factor = 1.0/(1.0 + U((m + first)==0));
++	    GammaE(i,m) += delta(m + first,energies(i))*kernel_jackson<U>(m + first, NumMoments)*factor;
+ 	  }
+ 	}
+       }
+@@ -273,8 +274,8 @@ void ldos<U, DIM>::calculate(){
+ 	for(int i = 0; i < NumEnergies; i++){
+ 	  c_energy = std::complex<U>(energies(i), kernel_parameter);
+ 	  for(int m = 0; m < localN; m++){
+-	    factor = 1.0/(1.0 + U((m + thread_id*localN)==0));
+-	    GammaE(i,m) += -factor*green<std::complex<U>>(m, 1, c_energy).imag();
++	    factor = 1.0/(1.0 + U((m + first)==0));
++	    GammaE(i,m) += -factor*green<std::complex<U>>(m, 1, c_energy).imag()/M_PI;
+ 	  }
+ 	}
+       }
+@@ -283,7 +284,7 @@ void ldos<U, DIM>::calculate(){
+       //for(int m = 0; m < ; m++){
+       //factor = 1.0/(1.0 + U(m==0));
+       //for(int i = 0; i < NumEnergies; i++){
+-      //GammaE(i,m) = delta(m + thread_id*localN, energies(i))*kernel_jackson<U>(m + thread_id*localN, NumMoments)*factor;
++      //GammaE(i,m) = delta(m + first, energies(i))*kernel_jackson<U>(m + first, NumMoments)*factor;
+       //}
+       //}
+       

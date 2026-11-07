@@ -1,0 +1,78 @@
+Partly there. Stampedes II does not contain the corrected Kummer seed or its scalar ODE. It contains its stricter Bessel limit. The full determinant, a bridge-as-fermion/resolvent interpretation, and the auxiliary differential equation from which the seed follows were already published. I did not find an explicit equivalent closed seed in the author papers and forward citations examined. That limited absence statement is not a proof of priority.
+
+Checked locally on 2026-11-05. Public sources were read without contacting authors, creating an account/key, or uploading this work. PDFs and complete extracted texts are retained in sources/. Page references below distinguish PDF page and printed page where they differ.
+
+## Pedro's second paper: a direct answer
+
+[Olivucci–Vieira, arXiv:2205.04476](https://arxiv.org/abs/2205.04476) is titled **Stampedes II: Null Polygons in Conformal Gauge Theory** on the arXiv PDF; the journal title is **Null Polygons in Conformal Gauge Theory**, [PRL 129, 221601 (2022)](https://doi.org/10.1103/PhysRevLett.129.221601). The complete nine-page arXiv paper, including appendices, was read independently by both workers.
+
+- **Page 1, Eq.(1):** its cusp scaling fixes products of two large logarithms times g^2, while g tends to zero. This retains the highest logarithms, not all inverse-log corrections.
+- **Page 1, Eq.(2) and its following paragraph:** the square is exp(-s^2) tau_l(s), tau_0=1, and the one-bridge seed is described as “a modified Bessel function I0(2s).” It generates Bessel determinants. Under s^2=LB, this is the B to infinity, L to zero limit of X004. At finite independent L,B the L^2 coefficient would be B^2/4 for this Bessel seed, versus (B^2-pi^2)/4 for X004. They are not the same answer in different variables.
+- **Page 4, Eqs.(14)–(15):** the function phi(x,y,z) is a three-cusp pentagon seed with a triple sum and nested determinants, not the square seed corrected to every inverse logarithm.
+- **Page 6, Appendix B, Eq.(21):** the broader single-light-cone regime is discussed as requiring a refined spin-chain treatment. No corrected closed square seed is supplied there.
+- **Page 8, Appendix E, Eqs.(25)–(28):** generalized Bessel determinants and matrix integrals; the random walks concern the stricter Bessel limit. None supplies this two-log Kummer function or its equivalent Coulomb/Whittaker scalar equation.
+
+Thus the answer to “is it already in our second paper?” is **no for the corrected closed seed and ODE; yes for their strict Bessel limit and associated Toda structures**.
+
+## What was already available outside Stampedes II
+
+| Primary source | Location and content | Relation to X004 |
+|---|---|---|
+| [Stampedes I, 2111.12131v2](https://arxiv.org/abs/2111.12131v2) | Section 4, Eqs.(42)–(44), printed pp15–16; Appendix E, Eqs.(93)–(96), PDF p32/printed p31; following paragraph PDF p33/printed p32 | The corrected seed is a Bessel expansion, with mixed-derivative Toda determinants. It asks for a “simple closed expression for τ” and to understand “why a Toda equation still governs this limit.” A closed seed addresses the former; it does not derive the latter mechanism. Published numbering calls the seed Eq.(E.7). |
+| [Belitsky–Korchemsky, Octagon at finite coupling, 2003.01121](https://arxiv.org/abs/2003.01121) | Eqs.(2.15)–(2.24), PDF pp9–11/printed pp8–10 | Modified Bessel Fredholm determinant; Q=(1-K chi)^(-1)J0; u=-2g partial_g log O; [(g partial_g+2x partial_x)^2+x+u-g partial_g u]Q=0. This is the existing linear auxiliary wave problem, not an explicit Kummer answer for the two-log ratio. Its boundary reduction, together with the rank-one bridge identity and projected zero-bridge Gaussian, gives the ODE. |
+| [Belitsky–Korchemsky, Crossing bridges with strong Szegő limit theorem, 2006.01831](https://arxiv.org/abs/2006.01831) | Section 3.2, Eqs.(3.15)–(3.17), PDF p12/printed p11; Eq.(3.12) gives the distinct simplest/asymptotic symbols | The exact arbitrary-bridge Bessel kernel is already known. Its two consecutive orders have the rank-one relation used in DERIVATION.md. This is an exact general representation containing the answer implicitly. |
+| [Kostov–Petkova, Octagon with finite bridge, 2102.05000](https://arxiv.org/abs/2102.05000) | Eqs.(1.6)–(1.8), PDF p5/printed p4; Eqs.(2.34)–(2.41), PDF pp10–11; Section 5, Eqs.(5.1)–(5.3), printed p20 | O1/O0=1+R^ee_00 and the bridge as a fermion insertion are explicit. Thus a resolvent/fermion answer is already there. Its explicitly solved light-cone scaling seed is Bessel, with full 2D Toda in two scaling coordinates; no corrected Kummer evaluation of that resolvent entry is given. The paper was read in full. |
+| [Belitsky, Null octagon from Deift–Zhou steepest descent, 2012.10446](https://arxiv.org/abs/2012.10446) | Eqs.(3)–(9), printed pp1–2; Eq.(4) has the Fermi distribution; Eqs.(59)–(60), printed pp9–10 | Finite-temperature Bessel determinant and null Gaussian asymptotics are prior art. The complete paper does not evaluate this one-bridge, two-log seed as a Kummer function. A Fermi-looking factor in Coulomb normalization alone is therefore no new thermal explanation. |
+| [Loebbert–Stawinski, 2408.15331](https://arxiv.org/abs/2408.15331) | Section 3.4, Eqs.(3.54)–(3.55) and next two paragraphs, PDF p34/printed p33 | Recalls the Bessel determinant and explicitly attributes the single-scaling 2D Toda observation to Stampedes I. It gives no closed corrected seed. Its future-work statement concerns a similar equation for the **full octagon**; it must not be quoted as saying that the known single-scaling Toda equation itself was left to future investigation. |
+
+These distinctions are why “partly there” is more accurate than an unqualified claim that the result had no precedent. In particular, an equivalent *unevaluated* boundary resolvent was already public. I found no published evaluation of that resolvent into this Kummer answer in the reviewed sources.
+
+## Other Olivucci or Vieira papers: full-text reading and false equivalents
+
+INSPIRE author identities P.Vieira.1 and E.Olivucci.1 were queried for 2021–2026, rather than relying on ambiguous surname matches. The returned portfolios have 21 and 11 records respectively (including papers published in 2021 with earlier arXiv identifiers). Their titles/abstracts were screened for the requested subjects. Relevant works and adjacent apparent equivalents were read in full, including appendices; the independent reader's details are in REFEREE.md.
+
+| Paper | Full-text finding |
+|---|---|
+| [Light-Cone Bootstrap of Higher Point Functions and Wilson Loop Duality, 2008.10407](https://arxiv.org/abs/2008.10407), published 2021, 9 PDF pages | Light-cone multipoint OPE and Wilson-loop recoil, Eqs.(12), (17), (21)–(23). Kummer 1F1 occurs in Eq.(3)/Appendix A as a descendant operator with parameters conformal spin; it is not the two-log bridge-ratio seed. |
+| [The Wilson Loop—Large Spin OPE Dictionary, 2110.04364](https://arxiv.org/abs/2110.04364), 35 pages | Eq.(23) is the normalized structure-constant/Wilson-loop map; Appendix E contains Casimir differential equations and Appendix F harmonic-number/binomial sums. No closed bridge-ratio seed or equivalent scalar equation. |
+| [Spinning Hexagons, 2207.08931](https://arxiv.org/abs/2207.08931), 41 pages | Eq.(42) has Pfaffians for three-spinning structure constants. Eqs.(56)–(57), PDF p32, concern a further large-spin Wilson-loop limit. Neither the same determinant nor the same seed. |
+| [Structure constants in N=4 SYM and separation of variables, 2210.04923](https://arxiv.org/abs/2210.04923), 14 pages | Baxter/SoV overlaps, Eqs.(2)–(6), and Hahn 3F2 in Appendix B; octagon reformulation through SoV is future work on PDF p7. No two-log Kummer seed. |
+| [Complex Spin / Multitwist Trajectories and Decoupling Zeros, 2211.13754](https://arxiv.org/abs/2211.13754), 14 pages | **A Coulomb/hydrogen analogy is already in Vieira's work:** Appendix F, PDF p13, Eq.(F1). Its Gamma-ratio partial-wave amplitude and residue zeros concern orbital spin and missing bound states in 3D. They are not this 2D radial wave or its zeros versus L. No first-Coulomb-analogy claim is justified. |
+| [The Loom for General Fishnet CFTs, 2212.09732](https://arxiv.org/abs/2212.09732), 42 pages | Conclusions, PDF p36/printed p35, fourth bullet asks about counting stampedes on M-Loom diagrams. No corrected octagon seed or radial equation. |
+| [Hexagonalization of Fishnet integrals II, 2306.04503v3](https://arxiv.org/abs/2306.04503v3), 47 pages | SoV tile/overlap formulae, Sections 4–6; the light-cone polygon limit appears as an outlook in Section 7, PDF p31/printed p30. It does not carry out that limit or evaluate the seed. |
+| [Multipoint fishnet Feynman diagrams: sequential splitting, 2307.12984](https://arxiv.org/abs/2307.12984), 27 pages including supplement | Main Eqs.(15)–(19), supplement Section VI Eqs.(89)–(123), give fishnet stampedes and a vertex model for leading-log coefficient functions. This is genuine later stampede work, but its chiral fishnet vertex weights and finite-diagram maximal logs are not the corrected N=4 octagon bridge ratio. |
+| [Light-ray wave functions and integrability, 2409.02160](https://arxiv.org/abs/2409.02160), 52 pages | Its tau(u), Eqs.(21)–(25), is a polynomial transfer eigenvalue in rapidity; Eq.(24) is a third-order angular wave equation, and Eq.(27) has cubic mode coefficients. Appendix C's Baxter/Hahn functions do not identify this second-order L,B seed. |
+| [Multiparticle Flux-Tube S-matrix Bootstrap, 2404.10812](https://arxiv.org/abs/2404.10812), 18 pages | Screened because of its title, then fully read: confining Yang-Mills/branon scattering, rather than N=4 null-polygon light-cone OPE. Its tau(x) is an energy-fraction polynomial, not the octagon function. |
+
+Stampedes I/II were also read in full. The 2021 mirror-excitation methods paper 2107.13035 was downloaded and text-screened as background, not claimed as another full reading of a light-cone-limit result. The remaining portfolio records concern other subjects (spectra of generalized fishnets, huge/heavy operators, scattering bootstrap, gravity or quantum sampling); none was used as evidence of absence from an unread full paper. No additional 2025–2026 authored paper on the requested limit was identified in these disambiguated portfolios. These author-index and full-text limits are explicit; this is not a claim to have read every paper by either author.
+
+## Forward citations: what was actually checked
+
+1. `~/.local/bin/cited-by '10.1007/JHEP07(2022)017'` was run normally. Its OpenAlex citing-work request failed after its built-in retries with **HTTP 429**; data/cited_by.txt preserves the error. No account or key was created and no positive result is attributed to this tool.
+2. [INSPIRE Stampedes I record 1975636](https://inspirehep.net/literature/1975636) and the API query `refersto:recid:1975636` returned **16 citing records**, all on one page, saved in data/inspire_citations.json. All titles and abstracts were inspected; available full texts were screened for equivalent special functions and relevant passages. The closest papers were read at the locations below. This is not a claim of full reading of every citing thesis or 120-page paper.
+3. [Crossref's DOI record](https://api.crossref.org/works/10.1007/JHEP07(2022)017) reports **12** incoming references. It supplies no reverse citing-title list in this record; its outgoing reference list is not a forward-citation check. data/crossref_stampedesI.json preserves the response. The difference from INSPIRE reflects index coverage, not four proven missing papers.
+
+| INSPIRE citing paper | Examination/result |
+|---|---|
+| 2205.04476, Stampedes II | Full reading above; strict Bessel seed only. |
+| 2307.12984, Multipoint fishnet diagrams | Full reading above; different maximal-log vertex model. |
+| 2212.09732, Loom | Full reading above; extension posed, not this answer. |
+| 2408.15331, Conformal four-point integrals | Section 3.4 and source context above; Toda attribution, no evaluated seed. |
+| 2211.15056, Light-cone limits of large rectangular fishnets | Sections 1–2 and null-limit discussion: thermodynamic rectangular fishnets and Coulomb **gas** of matrix-model eigenvalues, not a one-body Coulomb wave for O1/O0. |
+| 2401.06099, Two-loop five-point integrals | Stampedes subsection, Eqs.(74)–(79): leading-log decagon constraints and bootstrap; no corrected all-loop square seed. |
+| 2512.19780, Higher-point correlators: ten-dimensional null polygons | Section 6.3, Eqs.(6.17)–(6.21), PDF pp29–30: highest-log cusp scaling and existing Toda equations. The Coulomb **branch** language is moduli-space physics, not this radial equation. |
+| 2606.24018, Null limit of large-charge correlators | Conclusion contrasts the empty-polygon anomalous-dimension proposal with Stampedes cusp scaling; not the nonzero-bridge corrected seed. |
+| 2510.16471, Five W-boson amplitude / near-null decagon | Abstract and full-text screening: massive amplitude/decagon duality, no Kummer/Whittaker evaluation of this ratio. |
+| 2307.03076, Arctic curves of the four-vertex model | Abstract and full-text screening: Hahn log-gas/arctic curves of finite rectangular lattices, no corrected octagon seed. |
+| 2303.08852, A large twist limit for any operator | Abstract and full-text screening: graph-building spectra in twisted theory, not this octagon ratio. |
+| 2202.12296, Feynman polytopes and tropical geometry | Abstract/metadata: leading IR fishnet divergences, no candidate seed identified. Full text not used to assert absence. |
+| 2503.15593, Four-point correlator at twelve loops | Abstract and full-text screening: integrands/Catalan combinatorics, not this light-cone resummation. |
+| 2512.22996, Spectrum of two-dimensional fishnet CFT | Abstract and full-text screening: Baxter spectrum and quantization conditions, not the octagon seed. |
+| 2306.00929, Large-charge 't Hooft limit | Abstract and full-text screening: HHLL correlators and a Wishart–Laguerre matrix model. Those Laguerre polynomials are not an evaluated fixed-bridge Kummer seed in this sector. |
+| 10.18452/25602, Conformal Feynman Integrals and Correlation Functions in Fishnet Theory (thesis) | Metadata/abstract inspected: box analytic continuation, Basso–Dixon Ward identities, eclectic Jordan blocks. Full thesis was not read; no blanket claim of absence from it is made. |
+
+The additional 2026 paper [Walking Sudakov: From Cusp to Octagon, 2605.16034](https://arxiv.org/abs/2605.16034), flagged by the earlier X004 review, was downloaded and its relevant Coulomb-branch/scaling discussion and text screened. It discusses form factors and amplitudes with interpolating anomalous dimensions, not a fixed one-bridge seed; it is not in the returned INSPIRE citing list. DLMF [13.7](https://dlmf.nist.gov/13.7), [33.2](https://dlmf.nist.gov/33.2) and [33.11](https://dlmf.nist.gov/33.11) establish that the Kummer/Coulomb dictionary and phase asymptotics themselves are standard mathematics.
+
+## Consequence for the follow-up claim
+
+The existing X004 seed still appears to answer the explicit resummation request in Stampedes I, rather than duplicating Stampedes II. Its short derivation uses already published machinery; no numerical superiority over the exact determinant is implied. This follow-up adds a clear auxiliary Coulomb interpretation and exact consequences, but no independently established new physical mechanism or prediction tested on new data. Accordingly this job's claim is **NEW: no**. Pedro's interest is for Pedro to judge; nothing was sent to him.
