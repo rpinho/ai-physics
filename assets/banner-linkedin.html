@@ -9,21 +9,27 @@ h1{position:absolute;margin:0;font-family:'Instrument Serif',serif;font-weight:4
 h1 em{font-style:italic;color:var(--dusk)}
 .lines{position:absolute;font-family:Outfit,sans-serif;font-weight:700;color:var(--ink);line-height:1.34;letter-spacing:-.005em}
 .lines div:before{content:"";display:inline-block;width:.5em;height:.5em;border-radius:50%;background:var(--mauve);margin-right:.55em;vertical-align:.08em}
+.lead{position:absolute;font-family:Outfit,sans-serif;font-weight:700;color:var(--ink);line-height:1.05;letter-spacing:-.015em}
+.lead small{display:block;font-weight:600;color:var(--mauve);letter-spacing:0;margin-top:.12em}
 .foot{position:absolute;font-family:Outfit,sans-serif;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mauve)}
 </style></head><body>
 <svg class="art" id="art"></svg>
 <h1 id="title">AI for Physics</h1>
+<div class="lead" id="lead"></div>
 <div class="lines" id="lines"><div>Certified bounds on published results</div><div>Exact checks, independent referees</div><div>Bug reports on physics software</div></div>
 <div class="foot" id="foot">de Sitter bootstrap &middot; cosmology Pad&eacute; bounds &middot; KITE &middot; github.com/rpinho</div>
 <script>
-const CFG={"W": 1200, "H": 627, "blur": 87, "vs": 0.930703125, "linesTop": 0.33, "washes": [[0.12, 0.7, 0.33, "#dbe2f2", 0.85], [0.32, 0.22, 0.3, "#e6dcf0", 0.8], [0.6, 0.58, 0.26, "#d9e6f2", 0.9], [0.85, 0.38, 0.28, "#f7ddcb", 0.8], [0.97, 0.78, 0.24, "#dfe0f2", 0.7]], "spots": [["wave", 0.7, 0.38, 1.3], ["star", 0.9, 0.7, 0.8], ["grid", 0.645, 0.72, 0.85]], "thread": [[504, 138], [600, 94], [720, 75], [840, 88], [960, 75], [1056, 100], [1140, 188]], "curlDir": 1, "leafGap": 47, "sparks": [[0.08, 2.6], [0.34, 3.2], [0.62, 2.8], [0.9, 3.2]], "noLeaf": []};
+const CFG={"W": 1200, "H": 627, "blur": 87, "vs": 0.930703125, "linesTop": 0.33, "washes": [[0.12, 0.7, 0.33, "#dbe2f2", 0.85], [0.32, 0.22, 0.3, "#e6dcf0", 0.8], [0.6, 0.58, 0.26, "#d9e6f2", 0.9], [0.85, 0.38, 0.28, "#f7ddcb", 0.8], [0.97, 0.78, 0.24, "#dfe0f2", 0.7]], "spots": [["wave", 0.66, 0.36, 1.15], ["atom", 0.875, 0.5, 0.95], ["feynman", 0.66, 0.74, 0.8]], "thread": [[504, 138], [600, 94], [720, 75], [840, 88], [960, 75], [1056, 100], [1140, 188]], "curlDir": 1, "leafGap": 47, "sparks": [[0.08, 2.6], [0.34, 3.2], [0.62, 2.8], [0.9, 3.2]], "noLeaf": []};
 const {W,H}=CFG;
 document.documentElement.style.width=document.body.style.width=W+'px';
 document.documentElement.style.height=document.body.style.height=H+'px';
-{const T=document.getElementById('title'),L=document.getElementById('lines'),F=document.getElementById('foot');
+{const T=document.getElementById('title'),L=document.getElementById('lines'),F=document.getElementById('foot'),D=document.getElementById('lead');
  const pad=Math.round(W*0.045);
  Object.assign(T.style,{left:pad+'px',top:Math.round(H*0.085)+'px',fontSize:Math.round(H*0.135)+'px'});
- Object.assign(L.style,{left:pad+'px',top:Math.round(H*(CFG.linesTop))+'px',fontSize:Math.round(H*0.049)+'px'});
+ let lt=CFG.linesTop;
+ if(D.innerHTML.trim()){Object.assign(D.style,{left:pad+'px',top:Math.round(H*lt)+'px',fontSize:Math.round(H*0.088)+'px'});
+   D.querySelector('small')&&(D.querySelector('small').style.fontSize=Math.round(H*0.052)+'px');lt+=0.215}
+ Object.assign(L.style,{left:pad+'px',top:Math.round(H*lt)+'px',fontSize:Math.round(H*0.049)+'px'});
  Object.assign(F.style,{left:pad+'px',top:Math.round(H*0.885)+'px',fontSize:Math.round(H*0.027)+'px'});}
 let seed=29;const R=()=>(seed=(seed*16807)%2147483647)/2147483647;
 const G=()=>{let u=0,v=0;while(!u)u=R();while(!v)v=R();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
@@ -243,6 +249,65 @@ function curve(){ // a binned transit light curve: the astronomy motif
   s+=`<circle cx="${f(x)}" cy="${f(base+G()*4.5)}" r="1.7" fill="#6f7fb0" opacity=".55"/>`}
  return s;
 }
+function atom(){ // a nucleus with three electron orbits: physics
+ let s='';
+ s+=`<ellipse cx="0" cy="86" rx="70" ry="9" fill="${INK}" opacity=".07" filter="url(#soft)"/>`;
+ [0,60,120].forEach((a,k)=>{
+  s+=`<ellipse cx="0" cy="0" rx="92" ry="30" transform="rotate(${a})" fill="none" stroke="${INK}" stroke-width="1.4" stroke-opacity=".55"/>`;
+  const t=[0.6,2.4,4.2][k];const ex=92*Math.cos(t),ey=30*Math.sin(t);const r=a*Math.PI/180;
+  const x=ex*Math.cos(r)-ey*Math.sin(r),y=ex*Math.sin(r)+ey*Math.cos(r);
+  s+=`<circle cx="${f(x)}" cy="${f(y)}" r="9" fill="#9fb0e0" opacity=".45" filter="url(#soft)"/><circle cx="${f(x)}" cy="${f(y)}" r="4.2" fill="#6f7fb0" stroke="${INK}" stroke-width=".8"/>`});
+ const nuc=[[-6,-5,'#f2c9b3'],[6,-4,'#cfd9f0'],[0,6,'#f2c9b3'],[-8,6,'#cfd9f0'],[8,7,'#f2c9b3'],[1,-11,'#cfd9f0']];
+ s+=`<circle cx="0" cy="0" r="22" fill="#f2c27a" opacity=".35" filter="url(#soft)"/>`;
+ nuc.forEach(([x,y,c])=>s+=`<circle cx="${x}" cy="${y}" r="7" fill="${c}" stroke="${INK}" stroke-width="1"/>`);
+ return s;
+}
+function feynman(){ // a Feynman diagram: two fermion lines exchanging a photon
+ let s='';const A=[-34,0],B=[34,0];
+ const arrow=(x1,y1,x2,y2)=>{const mx=(x1+x2)/2,my=(y1+y2)/2,a=Math.atan2(y2-y1,x2-x1);
+  const p=(d,t)=>[mx+d*Math.cos(a+t),my+d*Math.sin(a+t)];const q=p(9,Math.PI-0.45),r=p(9,Math.PI+0.45);
+  return `<path d="M${f(q[0])} ${f(q[1])} L${f(mx)} ${f(my)} L${f(r[0])} ${f(r[1])}" fill="none" stroke="${INK}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>`};
+ [[-96,-58,A[0],A[1]],[-96,58,A[0],A[1]],[B[0],B[1],96,-58],[B[0],B[1],96,58]].forEach(([a,b,c,d])=>{
+  s+=`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="${INK}" stroke-width="1.8" stroke-linecap="round"/>`+arrow(a,b,c,d)});
+ const pts=[];for(let i=0;i<=120;i++){const x=A[0]+(B[0]-A[0])*i/120;pts.push([x,7*Math.sin(i/120*Math.PI*8)])}
+ s+=`<path d="${PL(pts)}" fill="none" stroke="#c98a5a" stroke-width="5" stroke-opacity=".25" filter="url(#soft)"/>`;
+ s+=`<path d="${PL(pts)}" fill="none" stroke="#c98a5a" stroke-width="1.8" stroke-linecap="round"/>`;
+ [A,B].forEach(([x,y])=>s+=`<circle cx="${x}" cy="${y}" r="4.5" fill="#fffaf2" stroke="${INK}" stroke-width="1.4"/>`);
+ return s;
+}
+function taotable(){ // a card of Tao's optimization constants, the merged ones ticked
+ let s='';const w=168,h=150;
+ s+=`<rect x="${-w/2+6}" y="${-h/2+8}" width="${w}" height="${h}" rx="10" fill="${INK}" opacity=".08" filter="url(#soft)"/>`;
+ s+=`<g transform="rotate(-4)"><rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="10" fill="#fffaf2" stroke="${INK}" stroke-width="1.6"/>`;
+ s+=`<rect x="${-w/2}" y="${-h/2}" width="${w}" height="30" rx="10" fill="#e6dcef"/><rect x="${-w/2}" y="${-h/2+20}" width="${w}" height="10" fill="#e6dcef"/>`;
+ s+=`<line x1="${-w/2}" y1="${-h/2+30}" x2="${w/2}" y2="${-h/2+30}" stroke="${INK}" stroke-width="1" stroke-opacity=".5"/>`;
+ s+=`<text x="${-w/2+14}" y="${-h/2+21}" font-family="Instrument Serif" font-style="italic" font-size="19" fill="${INK}">optimization constants</text>`;
+ ['42','44','68','70','82','86'].forEach((c,i)=>{const col=i%2,row=Math.floor(i/2);const x=-w/2+16+col*80,y=-h/2+58+row*34;
+  s+=`<text x="${x}" y="${y}" font-family="Instrument Serif" font-size="24" fill="${INK}">C<tspan font-size="14" dy="5">${c}</tspan></text>`;
+  s+=`<path d="M${x+40} ${y-8} l5 6 l10 -13" fill="none" stroke="#5f9a72" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>`});
+ s+=`</g>`;
+ return s;
+}
+function layers(){ // four stacked slabs: the layers of the stack
+ let s='';const cols=['#dcebe2','#e6dcef','#f6dccf','#dbe2f2'];
+ s+=`<ellipse cx="0" cy="92" rx="86" ry="10" fill="${INK}" opacity=".07" filter="url(#soft)"/>`;
+ cols.forEach((c,i)=>{const y=60-i*36,a=78,b=30,t=16;
+  s+=`<path d="M${-a} ${y} L0 ${y+b} L0 ${y+b+t} L${-a} ${y+t} Z" fill="${c}" stroke="${INK}" stroke-width="1.3" stroke-linejoin="round" filter="brightness(.93)"/>`;
+  s+=`<path d="M${a} ${y} L0 ${y+b} L0 ${y+b+t} L${a} ${y+t} Z" fill="${c}" stroke="${INK}" stroke-width="1.3" stroke-linejoin="round" opacity=".85"/>`;
+  s+=`<path d="M${-a} ${y} L0 ${y-b} L${a} ${y} L0 ${y+b} Z" fill="${c}" stroke="${INK}" stroke-width="1.5" stroke-linejoin="round"/>`;
+  s+=`<line x1="${-a+14}" y1="${y+t/2+5}" x2="-24" y2="${y+b-1}" stroke="${INK}" stroke-width=".8" stroke-opacity=".35"/>`});
+ s+=spark(0,-92,4.2);
+ return s;
+}
+function shield(){ // a guard: a shield with a check
+ let s='';
+ s+=`<ellipse cx="0" cy="84" rx="54" ry="8" fill="${INK}" opacity=".07" filter="url(#soft)"/>`;
+ const d=`M0 -72 C 30 -58 50 -58 62 -60 C 64 0 44 46 0 72 C -44 46 -64 0 -62 -60 C -50 -58 -30 -58 0 -72 Z`;
+ s+=`<path d="${d}" fill="#dbe2f2" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>`;
+ s+=`<path d="M0 -58 C 22 -48 38 -47 48 -48 C 49 0 34 36 0 57 Z" fill="#fffaf2" opacity=".55"/>`;
+ s+=`<path d="M-24 0 L-6 18 L28 -20" fill="none" stroke="#5f9a72" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
+ return s;
+}
 function dna_none(){return ''}
 // ======================= compose =======================
 let svg=`<defs>
@@ -266,7 +331,7 @@ svg+=`<g filter="url(#wash)">`+CFG.washes.map(([x,y,r,c,o])=>`<circle cx="${x*W}
 svg+=`<path id="thread2" fill="none" stroke="#f2c27a" stroke-width="6" stroke-opacity=".18" stroke-linecap="round" filter="url(#soft)"/>`;
 svg+=`<path id="thread" fill="none" stroke="${INK}" stroke-width="1" stroke-opacity=".45" stroke-linecap="round"/><path id="curl" fill="none" stroke="${INK}" stroke-width=".9" stroke-opacity=".45" stroke-linecap="round"/><g id="leaves"></g>`;
 const tr=(p,s,rot=0)=>`translate(${p[0]} ${p[1]}) rotate(${rot}) scale(${s})`;
-const DRAW={book,geo,cell,flask,wave,grid,curve,dna_none,star,
+const DRAW={book,geo,cell,flask,wave,grid,curve,dna_none,star,atom,feynman,taotable,layers,shield,
             dna:()=>`<g transform="rotate(-78)"><g transform="translate(-88 0)">${helix(176,17,58)}</g></g>`};
 CFG.spots.forEach(([name,x,y,sc])=>{svg+=`<g transform="${tr([x*W,y*H],sc*CFG.vs)}">${DRAW[name]()}</g>`});
 svg+=`<g id="sparks"></g>`;
