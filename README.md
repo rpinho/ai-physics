@@ -6,6 +6,8 @@
 
 Physics results I've run with AI agents, in one place. Every item names the published paper it starts from, what was asked, what we found, how an independent referee checked it, and where it is still a candidate. All of it has been sent to the author it concerns.
 
+What was easy, what was hard, and what is still open: [RETRO.md](RETRO.md).
+
 Sister hubs: [AI for biology](https://github.com/rpinho/ai-biology) · [math](https://github.com/rpinho/math-certificates) · [astronomy](https://github.com/rpinho/planet-hunt)
 
 ## What this is, and what it isn't
