@@ -14,7 +14,7 @@ Explicit certificate: α=2+8ν, B=3/[2(α+6)], Z=δc^(2/3), ε=(6−α)/[2(7Z²+
 
 ## Local code and evidence
 
-Root: `friends_pf_alho/O004_worker/`.
+Root: a private working copy; only some of these files are in this repository.
 
 - `PROOF.md`: complete center, barrier, tangential pressure, continuation and finite-radius proof.
 - `derive_barriers.py`: SymPy producer; `verify_signorini.py`: independent stdlib Fraction Laurent-polynomial verifier, reconstructed from literal source stored energy; `verify_instance.py`: exact rational example.
@@ -22,7 +22,7 @@ Root: `friends_pf_alho/O004_worker/`.
 - `baseline.py`, `pod_results/baseline.json`: Figure8 parameters reproduced first at two tolerances. Surface s=1.23262325218866 and1.07701968265372 for ν=−0.5 and0.25; surface δ=1.73087188579510 and1.24380776644345. Those digits are our reproduction, not numbers tabulated in the source. Baselines are uncertified floating point and do not support the theorem by themselves.
 - `PRIOR_ART.md`, `SWEEP.md`, `pod_results/prior/`: primary sources, dated audit, raw public-source receipts and final recheck. `REPORT.md`: exact pod reproduction commands. `PLAN.md`, immutable `config_A1.json` and `ATTEMPT1.md`: frozen method/kill-line and outcome. `BACKUP_RECEIPT.json`, `pod_results/process_audit.json`: backup and worker-lifecycle evidence.
 
-All scientific computation was on mscr, nice10, capped threads, under8 cores. Protected source outputs `/workspace/alho/RESULTS/O004`; work/input PDFs `/workspace/alho/O004`. Mini work was editing/transport only. No sealed data or biological work.
+All scientific computation was on a rented compute pod, nice10, capped threads, under8 cores; the protected source outputs and work/input PDFs stayed on the pod. Local work was editing/transport only. No sealed data or biological work.
 
 ## Verification and controls
 
@@ -34,4 +34,4 @@ Controls include reproduction at printed Figure8 parameters, the natural zero-pr
 
 The referee should scrutinize local unstable-fiber existence/regularity and the compact first-exit/continuation step, beyond checking polynomial identities. No machine-formalized proof, interval trajectory, pressure transversality, fluid-endpoint, low-density-branch or stability claim is made. Priority coverage is incomplete: GitHub code search was unauthorized/rate-limited, X required login, Reddit403, and repository trees were rate-limited. A public2019 Alho talk explicitly mentions Signorini existence, although the later paper poses this question and no complete proof was located. Generic variational/perturbative results may affect priority; the external taste stage must decide. No “first” claim is made.
 
-Requested `_codex/friends_pf_alho.md` was absent. RULES/current Alho board specification and common portfolio claim requirements were read; this package includes the published/result/code/verification/control/worry fields. Only O004 was edited. A1 cleared its frozen kill line; no failed-attempt close or artificial A2 is being submitted. No contact or publication occurred.
+The requested task file was absent. RULES/current Alho board specification and common portfolio claim requirements were read; this package includes the published/result/code/verification/control/worry fields. Only O004 was edited. A1 cleared its frozen kill line; no failed-attempt close or artificial A2 is being submitted. No contact or publication occurred.

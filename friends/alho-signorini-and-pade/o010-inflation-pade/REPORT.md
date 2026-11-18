@@ -10,7 +10,7 @@ and reproduction commands, and PRIOR_ART.md for sources and search limitations.
 Independent code: referee.py, exact_controls.py, source81_controls.py.
 Retained exact evidence: certificate_n*.json, independent_results.json,
 exact_controls.json, source81_controls.json and corresponding logs. The primary
-PDF/text and source page images are retained. All computation ran on mscr.
+PDF/text and source page images are retained. All computation ran on a rented compute pod.
 
 Next: compare certified error against formal degree and evaluation cost for the
 inverse and both direct Hubble approximation prescriptions on the same exponents.

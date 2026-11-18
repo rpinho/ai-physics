@@ -4,7 +4,7 @@ Written before referee code. Scope is correctness of the submitted formal light-
 
 Primary source: Olivucci and Pedro Vieira, Stampedes I, arXiv:2111.12131v2, JHEP07(2022)017. Authorship confirmed on the primary arXiv HTML. Its appendix E asks for resummation of the displayed seed. There is no identified official numerical leaderboard for this symbolic question.
 
-Best public general baseline: Kostov–Petkova–Serban, The Octagon as a Determinant, https://arxiv.org/abs/1905.11467, all-loop arbitrary-bridge ladder determinant. Belitsky–Korchemsky https://arxiv.org/abs/2006.01831 gives the Bessel Fredholm determinant; https://arxiv.org/abs/2003.01121 gives the exact resolvent equations. These cover the octagon more generally than a finite coefficient table. Independent reproduction planned on mscr from source definitions.
+Best public general baseline: Kostov–Petkova–Serban, The Octagon as a Determinant, https://arxiv.org/abs/1905.11467, all-loop arbitrary-bridge ladder determinant. Belitsky–Korchemsky https://arxiv.org/abs/2006.01831 gives the Bessel Fredholm determinant; https://arxiv.org/abs/2003.01121 gives the exact resolvent equations. These cover the octagon more generally than a finite coefficient table. Independent reproduction planned on a rented compute pod from source definitions.
 
 Initial public searches: `"octagon" "single" "light-cone" "Kummer"`, `"Stampedes" "Toda" resummation`, `github octagon Toda Vieira 2026`, `"Stampedes I" Vieira Olivucci`. Located https://arxiv.org/abs/2205.04476 (Stampedes II, higher polygons and Toda equations). No seed competitor identified from this initial search; this is not an absence or novelty claim.
 
@@ -12,7 +12,7 @@ Public code, recently updated repository searches, lab-result repositories, last
 
 ## Completed independent sweep
 
-All public responses and SHA256 receipts are archived under `evidence/sources/prior_sweep/`. Requests ran on mscr without credentials. GitHub repository API searches were sorted by updated descending: `octagon integrability`, `2111.12131`, `octagon Toda 2026`, `octagon awesome`. The first returned five unrelated MMA/API/watch repositories; the others returned zero. An issue/PR search for the paper ID returned no open matches. The unauthenticated code-search page was fetched, but no exhaustive code-search coverage is inferred.
+All public responses and SHA256 receipts are archived under `evidence/sources/prior_sweep/`. Requests ran on the pod without credentials. GitHub repository API searches were sorted by updated descending: `octagon integrability`, `2111.12131`, `octagon Toda 2026`, `octagon awesome`. The first returned five unrelated MMA/API/watch repositories; the others returned zero. An issue/PR search for the paper ID returned no open matches. The unauthenticated code-search page was fetched, but no exhaustive code-search coverage is inferred.
 
 Read public READMEs of BakeLab/Epi-results, google-deepmind/alphaevolve_results, openai/math, plasma-ai/erdos and kisonecat/openai-math. No relevant seed result was identified there. BakeLab's octagon hit concerns circle packing. The alphaevolve_results public tree had no path matching octagon, Toda, stampede or repository_of_problems. Guessed standalone google-deepmind/repository_of_problems and EinsteinArena/EinsteinArena README URLs returned 404; EinsteinArena's public website was fetched separately. These limitations remain explicit.
 

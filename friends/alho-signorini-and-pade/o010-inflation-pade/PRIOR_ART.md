@@ -10,7 +10,7 @@ Planned public checks: primary paper and author metadata; recent related papers;
 GitHub recent code, issues and public agent-result repositories; indexed community
 references. There is no identified live competitive scoreboard for this problem.
 No novelty or priority determination is part of this referee assignment.
-The independent baseline will be derived directly from the primary equations on mscr.
+The independent baseline will be derived directly from the primary equations on a rented compute pod.
 
 Public checks completed before independent construction: arXiv abstract and publicly
 redownloaded v2 PDF confirm Artur Alho, Juliette Hell, Claes Uggla as authors.
@@ -36,7 +36,7 @@ URLs: https://arxiv.org/abs/1503.06994 ; https://arxiv.org/pdf/1503.06994v2 ;
 https://arxiv.org/abs/1406.0438 ; https://arxiv.org/abs/2304.05650 ;
 https://api.github.com/search/repositories?q=1503.06994&sort=updated
 
-Independent baseline reproduction completed on mscr: printed Table 1 integers
+Independent baseline reproduction completed on the pod: printed Table 1 integers
 match tangency curves; literal eq66/68 give different, stronger numbers. Exact
 Hubble [2/2] via eq72 gives 0.386567606987%, but eq81 with that same explicitly
 printed Padé gives 0.0493857898153%, also beaten by the claimed certificate.

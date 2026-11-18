@@ -16,7 +16,7 @@ Sister hubs: [AI for biology](https://github.com/rpinho/ai-biology) · [math](ht
 
 A physicist I studied with put the objection plainly: a number alone isn't worth much without new physics or new intuition behind it. I think he's right, and most of what is below is a tightening, a closed form or a software defect rather than new physics. It is labelled that way.
 
-Brian Armstrong's November 7 [post](https://x.com/brian_armstrong/status/2119150702446420027) is the format argument: every experiment as a repo, data and code versioned, replication rewarded. Agents make the search cheap, so what matters is whether anyone else can rerun the check. Each folder here holds the claim, the primary-source derivation, the referee's verdict, and the checker the referee wrote without the finder's code.
+Brian Armstrong's November 7 [post](https://x.com/brian_armstrong/status/2119150702446420027) is the format argument: every experiment as a repo, data and code versioned, replication rewarded. Some referenced evidence isn't included in this repository.
 
 **Referee verdicts** are the separate agent's words: HOLDS, HOLDS WITH CAVEATS, CONFIRMED, CONFIRMED-MINOR. Nothing here has been refereed by a journal, and no priority is claimed.
 

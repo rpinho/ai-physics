@@ -2,7 +2,7 @@
 
 Inputs: literal energy 2104.11131v2 (2.12), tau=0; physical equations
 (1.1)-(1.3). The 2020 energy is a second primary-source transcription.
-Run on mscr only. All exact checks are symbolic over QQ.
+Run on a rented compute pod only. All exact checks are symbolic over QQ.
 """
 from pathlib import Path
 from datetime import datetime, timezone

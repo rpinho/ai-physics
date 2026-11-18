@@ -32,17 +32,14 @@ the complete ALL PASS run; both logs are retained. No predictive hold-out exists
 in this deterministic algebra problem; the claim describes its parameter sweep
 openly and does not assert held-out performance.
 
-Reproduction, using only the claim directory and the approved helper:
-
-```sh
-python3 _codex/friends_podsh.py mscr pod_launch.sh 90
-python3 _codex/friends_podsh.py mscr pod_poll.sh 90
-```
+Reproduction, using only the claim directory and the pod helper script: run
+`pod_launch.sh`, then `pod_poll.sh`. The pod scripts and the helper aren't
+bundled in this repository.
 
 pod_launch.sh embeds the final code and witness data. The exact final source
 is referee.py and evidence/referee.py; their SHA256 is recorded in
 evidence/pod_manifest.json. The archive referee_evidence.tar.gz and extracted
-evidence/ were copied back and all ten payload hashes checked on the Mini.
+evidence/ were copied back and all ten payload hashes checked locally.
 The archive contains every machine result needed for the verdict; the pod is
 not required to retain them. No large intermediate was generated.
 

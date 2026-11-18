@@ -16,17 +16,9 @@ No claimant search or verifier code was read, imported, or executed. Its claim, 
 
 ## Reproduction
 
-All research computation ran on mscr at nice 10. At most four worker processes were active, numerical thread limits were 1, and no research calculation ran on the Mini. Python 3.12.3, python-flint 0.9.0, SymPy 1.13.3. Only public sources and the referee's derived code were sent to the pod.
+All research computation ran on a rented compute pod at nice 10. At most four worker processes were active, numerical thread limits were 1, and no research calculation ran on the local machine. Python 3.12.3, python-flint 0.9.0, SymPy 1.13.3. Only public sources and the referee's derived code were sent to the pod.
 
-From this claim directory, using the provided helper:
-
-```sh
-python3 _codex/friends_podsh.py mscr pod_init.sh 60
-python3 _codex/friends_podsh.py mscr pod_smoke.sh 120
-python3 _codex/friends_podsh.py mscr pod_start.sh 60
-python3 _codex/friends_podsh.py mscr pod_poll.sh 60
-python3 _codex/friends_podsh.py mscr pod_source_audit.sh 60
-```
+From this claim directory, through the pod helper script, the steps are `pod_init.sh`, `pod_smoke.sh`, `pod_start.sh`, `pod_poll.sh` and `pod_source_audit.sh`. The pod scripts and the helper aren't bundled in this repository.
 
 `pod_smoke.sh` and `pod_source_audit.sh` contain the exact base64 payloads used. The full test command on the pod is `nice -n 10 python3 ref_bessel.py`, with OMP_NUM_THREADS, OPENBLAS_NUM_THREADS and MKL_NUM_THREADS all set to 1. Source acquisition is reproduced by `pod_sources.sh`; `pod_sweep.sh` and `pod_final_prior.sh` record the public literature/repository sweep. Cleanup does not remove the pod's code and compact results, so rerunning the two Python files also suffices there.
 

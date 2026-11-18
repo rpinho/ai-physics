@@ -14,29 +14,24 @@ Baseline reproduction and stronger controls: all requested n=2,3,20 printed inte
 
 Method and verification: let r=-Sigma/X^n, z=r² and f=n*tildeT*(1+r²)^((n+1)/(2n))/(3r). Then q=0 is exactly z=1/2. Construct P/Q from exact formal ODE coefficients, order 24. A separate standard-library Fraction verifier checks the series and Padé identities and proves strict polynomial residual signs over the whole [0,1/2] by rational Bernstein bounds. Upper/lower differential barriers, with an explicit singular-origin comparison argument, enclose the true attractor endpoint without a numerical initial condition. The approximant's monotonicity is separately certified. The Hubble error bound is rational. Arb at 256 bits encloses public-method roots and errors; exact polynomial checks exclude poles and multiple first endpoints. Two independent numerical integrations agree but are diagnostics only.
 
-Mini paths:
+Paths, in a private working copy (only some of these files are in this repository):
 
-- Report: `friends_pf_alho/O010_worker/REPORT.md`
-- Proof: `friends_pf_alho/O010_worker/PROOF.md`
-- Constructor: `friends_pf_alho/O010_worker/construct.py`
-- Separate verifier: `friends_pf_alho/O010_worker/verify.py`
-- Additional public controls: `friends_pf_alho/O010_worker/extra_controls.py`
-- Source and complete raw evidence: `friends_pf_alho/O010_worker/pod_results/`
+- Report: `REPORT.md`
+- Proof: `PROOF.md`
+- Constructor: `construct.py`
+- Separate verifier: `verify.py`
+- Additional public controls: `extra_controls.py`
+- Source and complete raw evidence: `pod_results/`
 - Exact coefficients and certificates: `pod_results/certificate.json`, `certificate_n20.json` and other per-n files
 - Source-control receipts: `pod_results/public_certificate_n*.json`, `extra_controls.json`, `baseline.json`, `crosscheck.json`
 - Rebuild log and audit: `pod_results/reproduction.log`, `FINAL_AUDIT.json`
-- Prior art: `friends_pf_alho/O010_worker/PRIOR_ART.md`
-- Frozen attempt: `O010_worker/config_A1.json` and immutable `O010_worker/ATTEMPT1.md`
+- Prior art: `PRIOR_ART.md`
+- Frozen attempt: `config_A1.json` and immutable `ATTEMPT1.md`
 
-Pod copies are protected in `/workspace/alho/RESULTS/O010`. The full small result set was pulled through the approved helper and every file SHA-256 checked against `pod_results/MANIFEST.json` (55 files, about 3.5 MB uncompressed).
+Pod copies are protected on the rented compute pod. The full small result set was pulled through the pod helper script (not published) and every file SHA-256 checked against `pod_results/MANIFEST.json` (55 files, about 3.5 MB uncompressed).
 
-Reproduction from `friends_pf_alho` on the Mini:
+Reproduction steps, run on the pod through the pod helper script: `reproduce.sh`, then `poll_reproduction.sh`. The pod scripts aren't bundled in this repository.
 
-```sh
-python3 _codex/friends_podsh.py mscr O010_worker/reproduce.sh 90
-python3 _codex/friends_podsh.py mscr O010_worker/poll_reproduction.sh 60
-```
-
-The first command starts a tracked nohup run. It computes only on mscr, nice 10, one thread per worker and at most six independent workers. The completed full rerun ended `O010_REPRODUCTION_PASS`; all tracked PIDs were confirmed exited. The code and certificates were copied back to the Mini after this rerun. No GPU or additional cores were needed.
+The first step starts a tracked nohup run. It computes only on the pod, nice 10, one thread per worker and at most six independent workers. The completed full rerun ended `O010_REPRODUCTION_PASS`; all tracked PIDs were confirmed exited. The code and certificates were copied back to the local machine after this rerun. No GPU or additional cores were needed.
 
 What we worry about: the referee should audit the change of variables, admissible-domain argument and comparison at the singular r=0 endpoint; these are mathematical proof obligations beyond polynomial sign arithmetic. The printed table and literal formula comparisons must remain distinguished. The bound concerns the first q=0 endpoint and finitely many n, not an entire trajectory-error guarantee or a uniform convergence theorem. Higher-order Padé approximation and variable transformations were proposed in the source, and Medina–Álvarez (2024) already treat adapted monomial Hamilton–Jacobi expansions generally. The taste step must decide whether this certified table extension is useful. GitHub code API was rate-limited and X coverage was indexed/unauthenticated; no exhaustive novelty claim is made. No contact, commit, push, PR or external message occurred.

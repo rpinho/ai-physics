@@ -24,9 +24,9 @@ An explicit strict-weight-zero invariant w_9 satisfies E^(5)w_9=2w_14 !=0; all l
 
 **Algebra-form caveat:** this is an obstruction for the ordinary Chevalley-generated algebra. It is not a counterexample if the conjectured codomain requires Lusztig divided-power invariance. Indeed the witness explicitly fails that requirement. The small-versus-divided-power distinction is established prior art (2008.06038, 1910.12427). The referee must audit which interpretation is warranted; the taste step must decide whether the explicit values/family add anything author-relevant. No author error is asserted.
 
-## Code and data on the Mini
+## Code and data
 
-Directory: friends_pf_dinis/W011_worker/ .
+Directory: a private working copy; only some of these files are in this repository.
 
 - REPORT.md: reproduction instructions, result/controls/limitations.
 - PROOF.md: algebra convention, explicit family and finite lower/upper argument.
@@ -35,14 +35,14 @@ Directory: friends_pf_dinis/W011_worker/ .
 - a1_rank.py, a1_witness.py: search and exact witness construction.
 - verify_a1.py: independent exact verifier; imports no search/construction module.
 - verify_projection.py, baseline_target.py: actual Jones–Wenzl recursion and same-size rational generic control.
-- REPRODUCE.sh: pod-only nohup entrypoint. Run through `_codex/friends_podsh.py mscr SCRIPT.sh 90` as detailed in REPORT.md; poll the protected reproduce.log.
+- REPRODUCE.sh: pod-only nohup entrypoint. Run through the pod helper script (not published) as detailed in REPORT.md; poll the protected reproduce.log.
 - pod_backup/a1_witness_ell3_L6.json: exact explicit coefficients and tensor basis states.
 - pod_backup/verified_patterns_ell3_L6.json: complete 34-pattern list.
 - pod_backup/verification_ell3_L6.json, verification_ell1_L10.json, verification_projection.json, baseline_target_ell3_L6.json: PASS receipts.
 - pod_backup/exact_pipeline.log and baseline_target.log: completed verification logs.
 - W011_results.tar.gz, BACKUP_RECEIPT.json and pod_backup/SHA256_MANIFEST.json: checksummed backup.
 
-The protected pod originals are /workspace/dinis/RESULTS/W011. Small artifacts are well below 50 MB; no bulky datasets are needed.
+The protected originals are on the pod. Small artifacts are well below 50 MB; no bulky datasets are needed.
 
 ## Verification
 
@@ -52,6 +52,6 @@ Modular column rank 34, and rank 35 after adding w_9, is checked at prime 100008
 
 ## Controls and worries
 
-Controls: source injectivity/full column rank; generic-q isomorphism reproduced before the root search on small cases and at the claimed size afterward; strict integer weight zero; direct divided-power separation; actual projector recursion; independent ell=1 cross-check. No predictive hold-out or sealed data is involved. All computation ran on mscr, nice 10, at most 8 processes and thread counts 1. Final process receipt confirms no worker remains.
+Controls: source injectivity/full column rank; generic-q isomorphism reproduced before the root search on small cases and at the claimed size afterward; strict integer weight zero; direct divided-power separation; actual projector recursion; independent ell=1 cross-check. No predictive hold-out or sealed data is involved. All computation ran on a rented compute pod, nice 10, at most 8 processes and thread counts 1. Final process receipt confirms no worker remains.
 
 Worries: the intended algebra form may make this an illustration of known representation theory rather than movement of the authors' intended conjecture. Later papers already establish the general categorical distinction. No matching finite table was found, which does not establish novelty; GitHub sorted-update API and unauthenticated code search/X retrieval had access limits, documented in PRIOR_ART.md. Other exploratory panel nullities are UNVERIFIED over characteristic zero and excluded from this claim. Neither VERDICT.md nor TASTE.md is supplied by this worker. Nothing was contacted or published externally.

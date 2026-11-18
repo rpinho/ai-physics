@@ -1,10 +1,10 @@
-# Confirmed KITE correctness bugs
+# KITE correctness bugs (four confirmed; CFG-002 excluded as intended behaviour)
 
 Pinned upstream: **a1e1f7ce6e48505ce2655315c2565446315a67e0**, default `master`, shallow clone in `upstream/kite/`.
 Latest release: **1.1**, published 2025-04-29, tag commit `078c23511bf63b6478af39f6a44d6e03828ec09a` (`sources/releases.json`, `sources/tags.json`).
-Aires Ferreira is named under **Project founders** in the pinned [README](upstream/kite/README.md), and is an author of [João et al., KITE, R. Soc. Open Sci. 7, 191809 (2020)](https://arxiv.org/abs/1910.05194), whose PDF is retained in `sources/kite-paper.pdf`.
+Aires Ferreira is named under **Project founders** in the pinned README, and is an author of [João et al., KITE, R. Soc. Open Sci. 7, 191809 (2020)](https://arxiv.org/abs/1910.05194), whose PDF is retained in `sources/kite-paper.pdf`.
 
-These five bugs were not found in the reviewed public issue/PR history. This is a local software repair result, **not a novel scientific result: NEW: no**. No paper number was improved, stated scientific open problem settled, or new-data prediction tested. No predictive model or predictive score is reported; trivial/simple/model baselines and SBS are inapplicable.
+These five reports were not found in the reviewed public issue/PR history. This is a local software repair result, **not a novel scientific result: NEW: no**. No paper number was improved, stated scientific open problem settled, or new-data prediction tested. No predictive model or predictive score is reported; trivial/simple/model baselines and SBS are inapplicable.
 
 Each section links a runnable repro with pinned output, independently computed correct output, repaired output, a minimal root-relative git patch, and a normal-input regression comparison. Independent numerical checks are separately written Python/NumPy implementations, not a second person or an external referee. Nothing was sent or published.
 
@@ -14,7 +14,7 @@ Each section links a runnable repro with pinned output, independently computed c
 - **Wrong:** subtracting the scalar energy shift broadcasts it to every element of a multi-orbital onsite matrix. Rescaling requires subtraction of shift × identity.
 - **Before → correct/after:** onsite H=`[[1,.25],[.25,2]]` eV, bounds [-1,5]; exported physical eigenvalues `[-0.3200274723,3.3200274723]` → `[0.9409830056,2.0590169944]` eV.
 - **Effect:** nonzero shifts silently change hybridization, splittings and the resulting spectral/transport problem; automatic asymmetric bounds can also produce nonzero shifts, although that route was not exercised.
-- **Evidence:** [repro and reasoning](repro/KITE-CFG-001/README.md), [before](repro/KITE-CFG-001/before.txt), [after](repro/KITE-CFG-001/after.txt), [patch](repro/KITE-CFG-001/patch.diff).
+- **Evidence:** repro and reasoning, before, after, patch (`repro/KITE-CFG-001/`).
 - **Independent check/control:** decode the actual HDF5 hopping representation, invert rescaling and diagonalize in plain NumPy. Zero-shift and one-orbital controls retain identical dataset values.
 - **Confidence:** high for the exporter with explicit bounds. Pybinding itself was not installed; its import is stubbed, no API calls are made, and the fixture uses upstream `lattice.py` with the same matrix representation as pybinding's retained source.
 - **Reason:** [KITE Eq. (2.14)](https://arxiv.org/abs/1910.05194); [Weiße et al. (2006), Eq. (24)](https://arxiv.org/abs/cond-mat/0504627).
@@ -25,7 +25,7 @@ Each section links a runnable repro with pinned output, independently computed c
 - **Wrong:** automatic complex detection checks intersite hoppings but ignores onsite matrices. Default `is_complex=False` silently drops imaginary onsite entries.
 - **Before → correct/after:** Hermitian H=`[[0,-i],[i,0]]` eV yields eigenvalues `[0,0]` → `[-1,1]` eV; Tr(H²) `0` → `2` eV². `IS_COMPLEX` becomes 1.
 - **Effect:** onsite spin/orbital terms can be removed, changing the Hamiltonian rather than its numerical precision. Explicit `is_complex=True` avoids this bug.
-- **Evidence:** [repro and reasoning](repro/KITE-CFG-002/README.md), [before](repro/KITE-CFG-002/before.txt), [after](repro/KITE-CFG-002/after.txt), [patch](repro/KITE-CFG-002/patch.diff).
+- **Evidence:** repro and reasoning, before, after, patch (`repro/KITE-CFG-002/`).
 - **Independent check/control:** independent HDF5 decoding, NumPy eigvalsh and the identity sigma_y²=I. Explicit-complex and ordinary real controls have identical HDF5 dataset values before/after.
 - **Confidence:** high for the explicit-bounds exporter; same import-only pybinding limitation as CFG-001.
 - **Reason:** Hermitian-matrix spectral decomposition; [KITE Sec. 2(a)](https://arxiv.org/abs/1910.05194).
@@ -36,7 +36,7 @@ Each section links a runnable repro with pinned output, independently computed c
 - **Wrong:** reading the HDF5 temperature does not refresh beta=1/temperature. Without CLI `-T`, both optical calculation branches use the default k_B*T=0.001 eV, regardless of the stored value.
 - **Before → correct/after:** two-site molecule at omega=0.6 eV and requested k_B*T=0.2 eV: sigma `4.78760 + 0.782720i` → `3.02977 + 0.480812i` in e²/h. Independent result `3.0297736361 + 0.4808121743i`.
 - **Effect:** temperature dependence and thermal occupation of optical transitions are wrong while the program prints the requested temperature. No Kelvin-conversion bug is claimed: temperature is k_B*T in energy units, per the pinned FAQ.
-- **Evidence:** [repro and parameters](repro/KITE-TOOLS-001/README.md), [pinned spectrum](repro/KITE-TOOLS-001/before/hot.dat), [repaired spectrum](repro/KITE-TOOLS-001/after/hot.dat), [independent numbers](repro/KITE-TOOLS-001/correct.json), [patch](repro/KITE-TOOLS-001/patch.diff).
+- **Evidence:** repro and parameters, pinned spectrum, repaired spectrum, independent numbers, patch (`repro/KITE-TOOLS-001/`).
 - **Independent check/control:** exact NumPy eigensystem, finite Jackson spectral projectors and direct scalar resolvents in the Kubo trace; matched moment count, grid and broadening. Default-temperature control is byte-identical.
 - **Confidence:** high. Real compiled post-processor, no mocks. The independent calculation agrees at all three frequencies within the precision of saved text.
 - **Reason:** Fermi occupation definition and [KITE Eq. (2.23)](https://arxiv.org/abs/1910.05194).
@@ -47,7 +47,7 @@ Each section links a runnable repro with pinned output, independently computed c
 - **Wrong:** Green LDOS uses −Im(G), rather than −Im(G)/pi; total DOS already contains the factor.
 - **Before → correct/after:** zero-energy isolated level, eta=0.2 eV: rho(0) `5` → `1.59155` 1/eV; exact `1.591549430918953`. The other tested energies show the same factor of pi.
 - **Effect:** absolute local spectral weight and integrated state counts are too large by pi for the `green` kernel. This is distinct from Lorentz damping coefficients.
-- **Evidence:** [repro and definition](repro/KITE-TOOLS-002/README.md), [before](repro/KITE-TOOLS-002/before.txt), [after](repro/KITE-TOOLS-002/after.txt), [patch](repro/KITE-TOOLS-002/patch.diff).
+- **Evidence:** repro and definition, before, after, patch (`repro/KITE-TOOLS-002/`).
 - **Independent check/control:** NumPy spectral decomposition and the defining resolvent/Lorentzian. One thread, 128 moments; truncation is negligible at this broadening. Jackson-kernel files are byte-identical.
 - **Confidence:** high; actual compiled post-processor, agreement at all three energies.
 - **Reason:** spectral-density definition; [KITE Eqs. (2.19)–(2.20), Fig. 1(a)](https://arxiv.org/abs/1910.05194).
@@ -58,7 +58,7 @@ Each section links a runnable repro with pinned output, independently computed c
 - **Wrong:** P threads each receive floor(M/P) moments; remaining moments are discarded. No divisibility restriction is enforced for the supported `-M` override.
 - **Before → correct/after:** five-moment Jackson LDOS of an isolated zero-energy level: one thread `0.742723`, two threads `0.689671` → both `0.742723` 1/eV; independent `0.7427230677621784`.
 - **Effect:** changing decomposition/thread count changes spectral results; if threads outnumber moments, all contributions can be lost. The demonstrated case uses only two threads.
-- **Evidence:** [repro and reasoning](repro/KITE-TOOLS-003/README.md), [before](repro/KITE-TOOLS-003/before.txt), [after](repro/KITE-TOOLS-003/after.txt), [patch](repro/KITE-TOOLS-003/patch.diff).
+- **Evidence:** repro and reasoning, before, after, patch (`repro/KITE-TOOLS-003/`).
 - **Independent check/control:** NumPy eigensystem and complete finite Jackson expansion. Input contains 128 moments, with a legal `-M 5` post-processing override, avoiding any untested odd-moment core calculation. Four-moment two-thread output is byte-identical.
 - **Confidence:** high for Jackson LDOS, actual compiled post-processor. Separate Green indexing concern below remains outside this fix.
 - **Reason:** finite Chebyshev/Jackson expansion, [Weiße et al., Eqs. (71)–(72)](https://arxiv.org/abs/cond-mat/0504627).

@@ -18,7 +18,7 @@ access limitations, and the baseline reproduction will be recorded below.
 
 Independent code will be written from the primary definitions, without
 importing the claimant's search or verifier code. Scientific computation
-will run only under /workspace/ref_alho_O004 on the shared mscr pod.
+will run only on a rented compute pod.
 
 ## Completed independent checks (2026-11-03 UTC)
 

@@ -1,6 +1,6 @@
 ![AI for Physics: certified bounds, exact seeds and bug reports on published physics software](assets/banner.png)
 
-# ai-physics: the full record
+# ai-physics: the record
 
 **AI for Physics.**
 
@@ -14,11 +14,11 @@ Sister hubs: [AI for biology](https://github.com/rpinho/ai-biology) · [math](ht
 
 A physicist I studied with put the objection plainly: a number alone isn't worth much without new physics or new intuition behind it. I think he's right, and most of what is below is a tightening, a closed form or a software defect rather than new physics. It is labelled that way.
 
-Brian Armstrong's November 7 [post](https://x.com/brian_armstrong/status/2119150702446420027) is the format argument: every experiment as a repo, data and code versioned, replication rewarded. Agents make the search cheap, so what matters is whether anyone else can rerun the check. Each folder here holds the claim, the primary-source derivation, the referee's verdict, and the checker the referee wrote without the finder's code.
+Brian Armstrong's November 7 [post](https://x.com/brian_armstrong/status/2119150702446420027) is the format argument: every experiment as a repo, data and code versioned, replication rewarded.
 
 **Referee verdicts** are the separate agent's words: HOLDS, HOLDS WITH CAVEATS, CONFIRMED, CONFIRMED-MINOR. Nothing here has been refereed by a journal, and no priority is claimed.
 
-This file puts the full record of every result in one place, for readers and reviewers who want it in a single document. Each section below is copied word for word from the result's own folder in this repository: the claim, the derivation or analysis, the independent referee's verdict, and the prior-art check. The folders also hold the referee and certificate code.
+This file puts the record of every result in one place, for readers and reviewers who want it in a single document. Each section below is copied word for word from the result's own folder in this repository: the claim, the derivation or analysis, the independent referee's verdict, and the prior-art check. Some referenced evidence isn't included in this repository.
 
 ---
 
@@ -34,7 +34,7 @@ _Source: [friends/penedones-de-sitter-bootstrap/CLAIM.md](friends/penedones-de-s
 
 UNVERIFIED. This number came from the scoreboard job, not a target worker: de Sitter bootstrap bound (arXiv 2107.13871 eq. 5.53), 5.67049 to 5.45808, said to be certified by a separate interval verifier.
 
-Evidence (read-only): friends_board_penedones_1103/REPORT.md, FRIEND_NOTE.md, CHOICE.md, PROOF.md if present, and every verifier/search script and result file those reports name in that folder; pod copies under /workspace/board_penedones and /workspace/penedones/RESULTS on pod mscr.
+Evidence (read-only, in a private working copy, not in this repository): REPORT.md, FRIEND_NOTE.md, CHOICE.md, PROOF.md if present, and every verifier/search script and result file those reports name in that folder; pod copies on a rented compute pod.
 
 Referee the exact claimed number: rebuild it from the primary paper with your own code, check the paper's printed number, its definition and normalization, run the trivial control, and check the verifier is independent of the search. End HOLDS, HOLDS WITH CAVEATS or FAILS.
 
@@ -152,7 +152,7 @@ Primary-source, public-code, recent-paper, public-community and agent-repository
 - There is no identified official live leaderboard for this toy bound; the primary paper is the comparison source. The claimant's retained wider citation and repository searches are read-only supporting data, not independently exhaustive evidence.
 
 ### Baseline status
-Independent code written directly from primary gamma/hypergeometric definitions, with no claimant module imports, reproduces 6.431737260572546574... and 2.386377515308742831... . All numerical evaluation runs on mscr. The four-term witness specifies an effective partial-wave weight; reconstructing the original crossing test requires a(z)=1/2 [z(1-z)]^(-1/4)P(z), rather than treating that effective weight as a(z).
+Independent code written directly from primary gamma/hypergeometric definitions, with no claimant module imports, reproduces 6.431737260572546574... and 2.386377515308742831... . All numerical evaluation runs on a rented compute pod. The four-term witness specifies an effective partial-wave weight; reconstructing the original crossing test requires a(z)=1/2 [z(1-z)]^(-1/4)P(z), rather than treating that effective weight as a(z).
 
 ### Completed independent recheck, 2026-11-03 20:54 UTC
 
@@ -182,7 +182,7 @@ Independent code written directly from primary gamma/hypergeometric definitions,
    "searched_at": "2026-11-03T14:42:26+00:00",
    "hits": [],
    "note": "Captured X search (browser, 2026-11-03T14:42:26+00:00) for the friend topic; 0 posts. Friend-level capture, not a per-target X search.",
-   "capture_path": "friends_queue/x_capture/frozen/penedones_0786126ddc59.jsonl",
+   "capture_path": "private capture, not in this repository",
    "capture_sha256": "0786126ddc59861bc02b99bc19bdf0488f4d68953db3840566a4311d07ab5da6"
   },
   "papers": {
@@ -250,7 +250,7 @@ PROOF.md supplies an all-order argument independent of coefficient fitting: the 
 
 ### Verification and controls
 
-All computation ran on pod mscr, nice 10, at most 8 cores, thread counts 1. The Mini performed editing and transport only.
+All computation ran on a rented compute pod, nice 10, at most 8 cores, thread counts 1. The local machine performed editing and transport only.
 
 - Baseline: 30/30 published coefficient entries; 108 baseline and 156 extension Hamiltonian matrix elements agree exactly with independently coded determinant coefficients. Extensions cover bridge 3 through loop 12 and bridge 4 through loop 14, with J=1..6. These finite J checks are not an all-spin theorem.
 - A2: 650/650 independent exact rational seed coefficient checks through L^24 at B=0,...,25,pi^2=1. The public full determinant includes all contributing particle sectors and does not import the proposed ODE. The separate verifier uses only the frozen recurrence. Degree bounds and weighted homogeneity turn these evaluations into polynomial identities, not statistical validation.
@@ -263,7 +263,7 @@ The first three displayed source corrections informed A2 and are explicitly fitt
 
 ### Files and exact reproduction
 
-Mini root: `friends_pf_vieira/X004_worker/`.
+Root: a private working copy; only some of these files are in this repository.
 
 - `PROOF.md`, `REPORT.md`, `PLAN.md`, immutable `ATTEMPT1.md`, `ATTEMPT2.md`, `config_A1.json`, `config_A2.json`.
 - A1 code: `determinant.py`, `hamiltonian.py`, `compare.py`.
@@ -271,15 +271,9 @@ Mini root: `friends_pf_vieira/X004_worker/`.
 - Exact data: `pod_results/baseline_determinant.json`, `comparison_baseline.json`, `comparison_extension.json`, `toda_det_B*.json`, `toda_verification.json`, `bridge_B*.json`, `bridge_verification.json`, `proof_verification.json`, logs and source receipts.
 - Prior art: `PRIOR_ART.md`, `SWEEP.md`, `FINAL_RECHECK.md`, `PDF_AUDIT.md`, and timestamped public-source receipts in `pod_results/`. `backup_manifest.json` records transported-file hashes.
 
-From the Mini:
+Reproduction steps, run on the pod through the pod helper script: `pod_reproduce.sh`, then `pod_poll_reproduce.sh`. The pod scripts aren't bundled in this repository.
 
-```sh
-cd friends_pf_vieira
-python3 _codex/friends_podsh.py mscr X004_worker/pod_reproduce.sh 120
-python3 _codex/friends_podsh.py mscr X004_worker/pod_poll_reproduce.sh 120
-```
-
-The payload starts a tracked nohup job under /workspace/vieira/X004. Outputs and logs go to /workspace/vieira/RESULTS/X004. Python dependencies: python-flint and SymPy. Do not run research computation on the Mini. The full command sequence is `reproduce_commands.sh`. Existing runs are complete; the reproduction payload is supplied for the separate referee.
+The payload starts a tracked nohup job on the pod, which also keeps the outputs and logs. Python dependencies: python-flint and SymPy. Do not run research computation on the local machine. The full command sequence is `reproduce_commands.sh`. Existing runs are complete; the reproduction payload is supplied for the separate referee.
 
 ### Worries and limits for the referee
 
@@ -410,7 +404,7 @@ Written before referee code. Scope is correctness of the submitted formal light-
 
 Primary source: Olivucci and Pedro Vieira, Stampedes I, arXiv:2111.12131v2, JHEP07(2022)017. Authorship confirmed on the primary arXiv HTML. Its appendix E asks for resummation of the displayed seed. There is no identified official numerical leaderboard for this symbolic question.
 
-Best public general baseline: Kostov–Petkova–Serban, The Octagon as a Determinant, https://arxiv.org/abs/1905.11467, all-loop arbitrary-bridge ladder determinant. Belitsky–Korchemsky https://arxiv.org/abs/2006.01831 gives the Bessel Fredholm determinant; https://arxiv.org/abs/2003.01121 gives the exact resolvent equations. These cover the octagon more generally than a finite coefficient table. Independent reproduction planned on mscr from source definitions.
+Best public general baseline: Kostov–Petkova–Serban, The Octagon as a Determinant, https://arxiv.org/abs/1905.11467, all-loop arbitrary-bridge ladder determinant. Belitsky–Korchemsky https://arxiv.org/abs/2006.01831 gives the Bessel Fredholm determinant; https://arxiv.org/abs/2003.01121 gives the exact resolvent equations. These cover the octagon more generally than a finite coefficient table. Independent reproduction planned on a rented compute pod from source definitions.
 
 Initial public searches: `"octagon" "single" "light-cone" "Kummer"`, `"Stampedes" "Toda" resummation`, `github octagon Toda Vieira 2026`, `"Stampedes I" Vieira Olivucci`. Located https://arxiv.org/abs/2205.04476 (Stampedes II, higher polygons and Toda equations). No seed competitor identified from this initial search; this is not an absence or novelty claim.
 
@@ -418,7 +412,7 @@ Public code, recently updated repository searches, lab-result repositories, last
 
 ### Completed independent sweep
 
-All public responses and SHA256 receipts are archived under `evidence/sources/prior_sweep/`. Requests ran on mscr without credentials. GitHub repository API searches were sorted by updated descending: `octagon integrability`, `2111.12131`, `octagon Toda 2026`, `octagon awesome`. The first returned five unrelated MMA/API/watch repositories; the others returned zero. An issue/PR search for the paper ID returned no open matches. The unauthenticated code-search page was fetched, but no exhaustive code-search coverage is inferred.
+All public responses and SHA256 receipts are archived under `evidence/sources/prior_sweep/`. Requests ran on the pod without credentials. GitHub repository API searches were sorted by updated descending: `octagon integrability`, `2111.12131`, `octagon Toda 2026`, `octagon awesome`. The first returned five unrelated MMA/API/watch repositories; the others returned zero. An issue/PR search for the paper ID returned no open matches. The unauthenticated code-search page was fetched, but no exhaustive code-search coverage is inferred.
 
 Read public READMEs of BakeLab/Epi-results, google-deepmind/alphaevolve_results, openai/math, plasma-ai/erdos and kisonecat/openai-math. No relevant seed result was identified there. BakeLab's octagon hit concerns circle packing. The alphaevolve_results public tree had no path matching octagon, Toda, stampede or repository_of_problems. Guessed standalone google-deepmind/repository_of_problems and EinsteinArena/EinsteinArena README URLs returned 404; EinsteinArena's public website was fetched separately. These limitations remain explicit.
 
@@ -559,7 +553,7 @@ Run these from this directory, one at a time (Python dependencies: SymPy 1.14.0 
     OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 nice -n 10 .venv/bin/python code/resolvent_check.py
     OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 nice -n 10 .venv/bin/python code/referee_check.py
 
-The corresponding JSON outputs are in data/. Main and referee code were written independently; neither imports the earlier X004 implementation. The referee additionally evaluates an angular Euler integral and the zero-derivative Wronskian integral. No cluster, remote computation or person was contacted. Research computations used one core per process, thread counts 1 and nice 10, with at most two simultaneous computations on this Mini.
+The corresponding JSON outputs are in data/. Main and referee code were written independently; neither imports the earlier X004 implementation. The referee additionally evaluates an angular Euler integral and the zero-derivative Wronskian integral. No cluster, remote computation or person was contacted. Research computations used one core per process, thread counts 1 and nice 10, with at most two simultaneous computations on one local machine.
 
 NEW: no for a new physical-result claim from this follow-up. The closed-form seed is the pre-existing X004 result. This job explains it and states standard consequences of its special function. It neither beats a printed number nor tests a physical prediction on new data, nor resolves the missing microscopic Toda/stochastic explanation. The narrow prior-art conclusion in PRIOR_ART.md does not turn this explanatory reformulation into a new discovery.
 
@@ -579,7 +573,7 @@ The first two terms are the two-dimensional radial Laplacian in the zero-angular
 \]
 the inverse-square term cannot be discarded to call this three-dimensional hydrogen.
 
-There is also a direct octagon meaning: a bridge insertion is a fermionic boundary insertion, and \(O_1/O_0\) is a dressed Bessel boundary mode. The published Fredholm-resolvent equation reduces at that boundary to this ODE. Thus the scattering wave describes an auxiliary mode of the existing determinant, not an independently postulated microscopic Hamiltonian. See [the derivation](DERIVATION.md) and [Kostov–Petkova, Eqs.(1.8), (2.34)–(2.41)](https://arxiv.org/abs/2102.05000).
+There is also a direct octagon meaning: a bridge insertion is a fermionic boundary insertion, and \(O_1/O_0\) is a dressed Bessel boundary mode. The published Fredholm-resolvent equation reduces at that boundary to this ODE. Thus the scattering wave describes an auxiliary mode of the existing determinant, not an independently postulated microscopic Hamiltonian. See [the derivation](friends/vieira-stampedes-seed/coulomb-follow-up/DERIVATION.md) and [Kostov–Petkova, Eqs.(1.8), (2.34)–(2.41)](https://arxiv.org/abs/2102.05000).
 
 The intuition is useful. Increasing the repulsion delays oscillations. If \(r_n(B)\) is a positive zero, exact differentiation gives
 \[
@@ -732,7 +726,7 @@ Stampedes I/II were also read in full. The 2021 mirror-excitation methods paper 
 
 ### Forward citations: what was actually checked
 
-1. `~/.local/bin/cited-by '10.1007/JHEP07(2022)017'` was run normally. Its OpenAlex citing-work request failed after its built-in retries with **HTTP 429**; data/cited_by.txt preserves the error. No account or key was created and no positive result is attributed to this tool.
+1. A local citation helper, `cited-by '10.1007/JHEP07(2022)017'`, was run normally. Its OpenAlex citing-work request failed after its built-in retries with **HTTP 429**; data/cited_by.txt preserves the error. No account or key was created and no positive result is attributed to this tool.
 2. [INSPIRE Stampedes I record 1975636](https://inspirehep.net/literature/1975636) and the API query `refersto:recid:1975636` returned **16 citing records**, all on one page, saved in data/inspire_citations.json. All titles and abstracts were inspected; available full texts were screened for equivalent special functions and relevant passages. The closest papers were read at the locations below. This is not a claim of full reading of every citing thesis or 120-page paper.
 3. [Crossref's DOI record](https://api.crossref.org/works/10.1007/JHEP07(2022)017) reports **12** incoming references. It supplies no reverse citing-title list in this record; its outgoing reference list is not a forward-citation check. data/crossref_stampedesI.json preserves the response. The difference from INSPIRE reflects index coverage, not four proven missing papers.
 
@@ -787,7 +781,7 @@ Explicit certificate: α=2+8ν, B=3/[2(α+6)], Z=δc^(2/3), ε=(6−α)/[2(7Z²+
 
 ### Local code and evidence
 
-Root: `friends_pf_alho/O004_worker/`.
+Root: a private working copy; only some of these files are in this repository.
 
 - `PROOF.md`: complete center, barrier, tangential pressure, continuation and finite-radius proof.
 - `derive_barriers.py`: SymPy producer; `verify_signorini.py`: independent stdlib Fraction Laurent-polynomial verifier, reconstructed from literal source stored energy; `verify_instance.py`: exact rational example.
@@ -795,7 +789,7 @@ Root: `friends_pf_alho/O004_worker/`.
 - `baseline.py`, `pod_results/baseline.json`: Figure8 parameters reproduced first at two tolerances. Surface s=1.23262325218866 and1.07701968265372 for ν=−0.5 and0.25; surface δ=1.73087188579510 and1.24380776644345. Those digits are our reproduction, not numbers tabulated in the source. Baselines are uncertified floating point and do not support the theorem by themselves.
 - `PRIOR_ART.md`, `SWEEP.md`, `pod_results/prior/`: primary sources, dated audit, raw public-source receipts and final recheck. `REPORT.md`: exact pod reproduction commands. `PLAN.md`, immutable `config_A1.json` and `ATTEMPT1.md`: frozen method/kill-line and outcome. `BACKUP_RECEIPT.json`, `pod_results/process_audit.json`: backup and worker-lifecycle evidence.
 
-All scientific computation was on mscr, nice10, capped threads, under8 cores. Protected source outputs `/workspace/alho/RESULTS/O004`; work/input PDFs `/workspace/alho/O004`. Mini work was editing/transport only. No sealed data or biological work.
+All scientific computation was on a rented compute pod, nice10, capped threads, under8 cores; the protected source outputs and work/input PDFs stayed on the pod. Local work was editing/transport only. No sealed data or biological work.
 
 ### Verification and controls
 
@@ -807,7 +801,7 @@ Controls include reproduction at printed Figure8 parameters, the natural zero-pr
 
 The referee should scrutinize local unstable-fiber existence/regularity and the compact first-exit/continuation step, beyond checking polynomial identities. No machine-formalized proof, interval trajectory, pressure transversality, fluid-endpoint, low-density-branch or stability claim is made. Priority coverage is incomplete: GitHub code search was unauthorized/rate-limited, X required login, Reddit403, and repository trees were rate-limited. A public2019 Alho talk explicitly mentions Signorini existence, although the later paper poses this question and no complete proof was located. Generic variational/perturbative results may affect priority; the external taste stage must decide. No “first” claim is made.
 
-Requested `_codex/friends_pf_alho.md` was absent. RULES/current Alho board specification and common portfolio claim requirements were read; this package includes the published/result/code/verification/control/worry fields. Only O004 was edited. A1 cleared its frozen kill line; no failed-attempt close or artificial A2 is being submitted. No contact or publication occurred.
+The requested task file was absent. RULES/current Alho board specification and common portfolio claim requirements were read; this package includes the published/result/code/verification/control/worry fields. Only O004 was edited. A1 cleared its frozen kill line; no failed-attempt close or artificial A2 is being submitted. No contact or publication occurred.
 
 ## Analysis
 
@@ -998,7 +992,7 @@ Four baseline runs reproduced R_s=1.232623252189 and 1.077019682654.
 These are computed dimensionless radii, not numbers tabulated in Figure 8;
 unit conversion gives approximately 0.6023 and 0.5262, consistent with its plots.
 The plot's unit convention is inferred; the physical scaling is exact.
-Forty-two stress cases and no-gravity controls were also run on mscr.
+Forty-two stress cases and no-gravity controls were also run on the rented compute pod.
 One coarse numerical negative-pressure flag disappeared under tighter and
 70-digit replay; the original flag and all evidence are retained locally.
 
@@ -1043,7 +1037,7 @@ access limitations, and the baseline reproduction will be recorded below.
 
 Independent code will be written from the primary definitions, without
 importing the claimant's search or verifier code. Scientific computation
-will run only under /workspace/ref_alho_O004 on the shared mscr pod.
+will run only on a rented compute pod.
 
 ### Completed independent checks (2026-11-03 UTC)
 
@@ -1138,30 +1132,25 @@ Baseline reproduction and stronger controls: all requested n=2,3,20 printed inte
 
 Method and verification: let r=-Sigma/X^n, z=r² and f=n*tildeT*(1+r²)^((n+1)/(2n))/(3r). Then q=0 is exactly z=1/2. Construct P/Q from exact formal ODE coefficients, order 24. A separate standard-library Fraction verifier checks the series and Padé identities and proves strict polynomial residual signs over the whole [0,1/2] by rational Bernstein bounds. Upper/lower differential barriers, with an explicit singular-origin comparison argument, enclose the true attractor endpoint without a numerical initial condition. The approximant's monotonicity is separately certified. The Hubble error bound is rational. Arb at 256 bits encloses public-method roots and errors; exact polynomial checks exclude poles and multiple first endpoints. Two independent numerical integrations agree but are diagnostics only.
 
-Mini paths:
+Paths, in a private working copy (only some of these files are in this repository):
 
-- Report: `friends_pf_alho/O010_worker/REPORT.md`
-- Proof: `friends_pf_alho/O010_worker/PROOF.md`
-- Constructor: `friends_pf_alho/O010_worker/construct.py`
-- Separate verifier: `friends_pf_alho/O010_worker/verify.py`
-- Additional public controls: `friends_pf_alho/O010_worker/extra_controls.py`
-- Source and complete raw evidence: `friends_pf_alho/O010_worker/pod_results/`
+- Report: `REPORT.md`
+- Proof: `PROOF.md`
+- Constructor: `construct.py`
+- Separate verifier: `verify.py`
+- Additional public controls: `extra_controls.py`
+- Source and complete raw evidence: `pod_results/`
 - Exact coefficients and certificates: `pod_results/certificate.json`, `certificate_n20.json` and other per-n files
 - Source-control receipts: `pod_results/public_certificate_n*.json`, `extra_controls.json`, `baseline.json`, `crosscheck.json`
 - Rebuild log and audit: `pod_results/reproduction.log`, `FINAL_AUDIT.json`
-- Prior art: `friends_pf_alho/O010_worker/PRIOR_ART.md`
-- Frozen attempt: `O010_worker/config_A1.json` and immutable `O010_worker/ATTEMPT1.md`
+- Prior art: `PRIOR_ART.md`
+- Frozen attempt: `config_A1.json` and immutable `ATTEMPT1.md`
 
-Pod copies are protected in `/workspace/alho/RESULTS/O010`. The full small result set was pulled through the approved helper and every file SHA-256 checked against `pod_results/MANIFEST.json` (55 files, about 3.5 MB uncompressed).
+Pod copies are protected on the rented compute pod. The full small result set was pulled through the pod helper script (not published) and every file SHA-256 checked against `pod_results/MANIFEST.json` (55 files, about 3.5 MB uncompressed).
 
-Reproduction from `friends_pf_alho` on the Mini:
+Reproduction steps, run on the pod through the pod helper script: `reproduce.sh`, then `poll_reproduction.sh`. The pod scripts aren't bundled in this repository.
 
-```sh
-python3 _codex/friends_podsh.py mscr O010_worker/reproduce.sh 90
-python3 _codex/friends_podsh.py mscr O010_worker/poll_reproduction.sh 60
-```
-
-The first command starts a tracked nohup run. It computes only on mscr, nice 10, one thread per worker and at most six independent workers. The completed full rerun ended `O010_REPRODUCTION_PASS`; all tracked PIDs were confirmed exited. The code and certificates were copied back to the Mini after this rerun. No GPU or additional cores were needed.
+The first step starts a tracked nohup run. It computes only on the pod, nice 10, one thread per worker and at most six independent workers. The completed full rerun ended `O010_REPRODUCTION_PASS`; all tracked PIDs were confirmed exited. The code and certificates were copied back to the local machine after this rerun. No GPU or additional cores were needed.
 
 What we worry about: the referee should audit the change of variables, admissible-domain argument and comparison at the singular r=0 endpoint; these are mathematical proof obligations beyond polynomial sign arithmetic. The printed table and literal formula comparisons must remain distinguished. The bound concerns the first q=0 endpoint and finitely many n, not an entire trajectory-error guarantee or a uniform convergence theorem. Higher-order Padé approximation and variable transformations were proposed in the source, and Medina–Álvarez (2024) already treat adapted monomial Hamilton–Jacobi expansions generally. The taste step must decide whether this certified table extension is useful. GitHub code API was rate-limited and X coverage was indexed/unauthenticated; no exhaustive novelty claim is made. No contact, commit, push, PR or external message occurred.
 
@@ -1223,7 +1212,7 @@ Planned public checks: primary paper and author metadata; recent related papers;
 GitHub recent code, issues and public agent-result repositories; indexed community
 references. There is no identified live competitive scoreboard for this problem.
 No novelty or priority determination is part of this referee assignment.
-The independent baseline will be derived directly from the primary equations on mscr.
+The independent baseline will be derived directly from the primary equations on a rented compute pod.
 
 Public checks completed before independent construction: arXiv abstract and publicly
 redownloaded v2 PDF confirm Artur Alho, Juliette Hell, Claes Uggla as authors.
@@ -1249,7 +1238,7 @@ URLs: https://arxiv.org/abs/1503.06994 ; https://arxiv.org/pdf/1503.06994v2 ;
 https://arxiv.org/abs/1406.0438 ; https://arxiv.org/abs/2304.05650 ;
 https://api.github.com/search/repositories?q=1503.06994&sort=updated
 
-Independent baseline reproduction completed on mscr: printed Table 1 integers
+Independent baseline reproduction completed on the pod: printed Table 1 integers
 match tangency curves; literal eq66/68 give different, stronger numbers. Exact
 Hubble [2/2] via eq72 gives 0.386567606987%, but eq81 with that same explicitly
 printed Padé gives 0.0493857898153%, also beaten by the claimed certificate.
@@ -1305,16 +1294,16 @@ At exact true Omega_phi=2/5, inside the frozen redshift interval, the checker pr
 
 ### Local code, data and reproduction
 
-Mini directory: friends_pf_alho/O011_worker/
+Directory: a private working copy; only some of these files are in this repository.
 
 - Code: baseline.py, attempt1.py, enclosure_reference.py, verify_uniform.py, run_science.sh.
 - Exact coefficients: pod_results/attempt1_p1.0.json and attempt1_p0.1.json; auxiliary reference enclosure_p*.json.
 - Certificates: pod_results/uniform_certificate.json and uniform_certificate_p*.json; logs, environment.json, SCIENCE_COMPLETE, process_check.json and SHA256SUMS.json accompany them.
 - Data/source receipts: pod_results/baseline.json and pod_results/sources/ (original HTML, public API replies, timestamps and hashes).
 - Protocol: PLAN.md, immutable config_A1.json and ATTEMPT1.md; config SHA-256 2feaf1fea82f6b1f8ec61268a4c7828af93c90c5a8172d568fdf6abcdefa615f.
-- Argument and instructions: PROOF.md, REPORT.md, PRIOR_ART.md. REPORT.md has the exact transport/launch/poll/pull commands; all scientific work runs on mscr, nice 10, thread caps 1, at most two simultaneous potential workers.
+- Argument and instructions: PROOF.md, REPORT.md, PRIOR_ART.md. REPORT.md has the exact transport/launch/poll/pull commands; all scientific work runs on a rented compute pod, nice 10, thread caps 1, at most two simultaneous potential workers.
 
-Protected pod copy: /workspace/alho/RESULTS/O011/. Active code directory: /workspace/alho/O011/. Small-file archive and SHA-256 verification receipt are kept on the Mini. No large inputs or external/private data are required. No own scientific workers remain running.
+A protected copy and the active code directory stay on the pod. Small-file archive and SHA-256 verification receipt are kept locally. No large inputs or external/private data are required. No own scientific workers remain running.
 
 ### Worries for the referee and taste stage
 
@@ -1409,7 +1398,7 @@ Referee: gpt-6.1-sol
 
 The stated uniform error improvement survives an independent reconstruction for both p=1 and p=0.1, Omega_phi0=0.68, dust plus scalar, and the entire closed interval 0<=z<=6. Omega_m and E=H/H0 are the same quantities used in the paper.
 
-I wrote and ran independent rational-series, Padé, Friedmann/Klein–Gordon and Arb verification code on mscr; no claimant search or verifier code was imported. Exact order-12 coefficients matched. The 192-bit continuous audit passed 6067/9112 error cells and two 2048-cell tracker tubes.
+I wrote and ran independent rational-series, Padé, Friedmann/Klein–Gordon and Arb verification code on a rented compute pod; no claimant search or verifier code was imported. Exact order-12 coefficients matched. The 192-bit continuous audit passed 6067/9112 error cells and two 2048-cell tracker tubes.
 
 My certified relative upper bounds (fractions, not percentages) are: p=1, Omega_m<3.294e-6 and E<1.647e-6; p=0.1, Omega_m<3.010e-6 and E<1.505e-6. These imply every submitted limit. The much smaller floating maxima remain numerical diagnostics.
 
@@ -1536,9 +1525,9 @@ An explicit strict-weight-zero invariant w_9 satisfies E^(5)w_9=2w_14 !=0; all l
 
 **Algebra-form caveat:** this is an obstruction for the ordinary Chevalley-generated algebra. It is not a counterexample if the conjectured codomain requires Lusztig divided-power invariance. Indeed the witness explicitly fails that requirement. The small-versus-divided-power distinction is established prior art (2008.06038, 1910.12427). The referee must audit which interpretation is warranted; the taste step must decide whether the explicit values/family add anything author-relevant. No author error is asserted.
 
-### Code and data on the Mini
+### Code and data
 
-Directory: friends_pf_dinis/W011_worker/ .
+Directory: a private working copy; only some of these files are in this repository.
 
 - REPORT.md: reproduction instructions, result/controls/limitations.
 - PROOF.md: algebra convention, explicit family and finite lower/upper argument.
@@ -1547,14 +1536,14 @@ Directory: friends_pf_dinis/W011_worker/ .
 - a1_rank.py, a1_witness.py: search and exact witness construction.
 - verify_a1.py: independent exact verifier; imports no search/construction module.
 - verify_projection.py, baseline_target.py: actual Jones–Wenzl recursion and same-size rational generic control.
-- REPRODUCE.sh: pod-only nohup entrypoint. Run through `_codex/friends_podsh.py mscr SCRIPT.sh 90` as detailed in REPORT.md; poll the protected reproduce.log.
+- REPRODUCE.sh: pod-only nohup entrypoint. Run through the pod helper script (not published) as detailed in REPORT.md; poll the protected reproduce.log.
 - pod_backup/a1_witness_ell3_L6.json: exact explicit coefficients and tensor basis states.
 - pod_backup/verified_patterns_ell3_L6.json: complete 34-pattern list.
 - pod_backup/verification_ell3_L6.json, verification_ell1_L10.json, verification_projection.json, baseline_target_ell3_L6.json: PASS receipts.
 - pod_backup/exact_pipeline.log and baseline_target.log: completed verification logs.
 - W011_results.tar.gz, BACKUP_RECEIPT.json and pod_backup/SHA256_MANIFEST.json: checksummed backup.
 
-The protected pod originals are /workspace/dinis/RESULTS/W011. Small artifacts are well below 50 MB; no bulky datasets are needed.
+The protected originals are on the pod. Small artifacts are well below 50 MB; no bulky datasets are needed.
 
 ### Verification
 
@@ -1564,7 +1553,7 @@ Modular column rank 34, and rank 35 after adding w_9, is checked at prime 100008
 
 ### Controls and worries
 
-Controls: source injectivity/full column rank; generic-q isomorphism reproduced before the root search on small cases and at the claimed size afterward; strict integer weight zero; direct divided-power separation; actual projector recursion; independent ell=1 cross-check. No predictive hold-out or sealed data is involved. All computation ran on mscr, nice 10, at most 8 processes and thread counts 1. Final process receipt confirms no worker remains.
+Controls: source injectivity/full column rank; generic-q isomorphism reproduced before the root search on small cases and at the claimed size afterward; strict integer weight zero; direct divided-power separation; actual projector recursion; independent ell=1 cross-check. No predictive hold-out or sealed data is involved. All computation ran on a rented compute pod, nice 10, at most 8 processes and thread counts 1. Final process receipt confirms no worker remains.
 
 Worries: the intended algebra form may make this an illustration of known representation theory rather than movement of the authors' intended conjecture. Later papers already establish the general categorical distinction. No matching finite table was found, which does not establish novelty; GitHub sorted-update API and unauthenticated code search/X retrieval had access limits, documented in PRIOR_ART.md. Other exploratory panel nullities are UNVERIFIED over characteristic zero and excluded from this claim. Neither VERDICT.md nor TASTE.md is supplied by this worker. Nothing was contacted or published externally.
 
@@ -1734,17 +1723,123 @@ local identity audit; unrelated Tiago Fonseca publications were not used.
 
 Folder: [friends/ferreira-kite](friends/ferreira-kite)
 
-## Bugs
+The repro, evidence, dependency and upstream folders named below aren't bundled in this repository.
+
+## Verdicts
+
+_Source: [friends/ferreira-kite/VERDICTS.md](friends/ferreira-kite/VERDICTS.md)_
+
+## Independent KITE referee verdicts
+
+Refereed locally on 2026-11-06 against fresh clone commit `a1e1f7ce6e48505ce2655315c2565446315a67e0`. Only the hunter's claim document and report were read; none of their scripts, patches, fixtures or output files was run, imported or copied. The suspected list was excluded.
+
+| ID | Verdict | My repro path | Effect on users' results |
+|---|---|---|---|
+| KITE-CFG-001 | **CONFIRMED** | repro/config/run.py, result | Nonzero energy shift invents interorbital couplings, even for diagonal onsite matrices, changing the exported Hamiltonian and spectrum. Exporter-only execution; pybinding limitation below. |
+| KITE-CFG-002 | **INTENDED** | repro/config/run.py, default, explicit complex | Imaginary onsite entries are lost in documented real-only mode; setting `is_complex=True` preserves them. Incomplete automatic detection is a safeguard inconsistency, not a demonstrated violation of the documented mode contract. |
+| KITE-TOOLS-001 | **CONFIRMED** | repro/optical/run.py, scalar reference, results | File temperature is printed but ignored in both optical calculation branches, so finite-temperature spectra use the default cold occupations. |
+| KITE-TOOLS-002 | **CONFIRMED** | repro/ldos/run.py, results | The documented Green LDOS kernel returns spectral density too large by a factor of pi. |
+| KITE-TOOLS-003 | **CONFIRMED** | repro/ldos/run.py, results | A non-divisible moment count silently loses its remainder on multiple threads, making Jackson LDOS depend on decomposition. Divisible counts are unaffected in the control. |
+
+### Ranked findings
+
+1. **TOOLS-001: ignored optical temperature.** Affects the ordinary file-driven workflow and both calculation branches, while displaying the requested temperature. Explicit CLI `-T` avoids it. The numerical effect is substantial in the independent molecule below.
+2. **CFG-001: onsite energy rescaling changes the physical model.** Affects valid multi-orbital matrices whenever the energy shift is nonzero; even zero off-diagonal entries become couplings. Manual asymmetric bounds are explicitly documented. Zero shift and single-orbital inputs passed the controls.
+3. **TOOLS-002: absolute Green LDOS normalization.** Every tested energy on the supported `green` path has the same factor-of-pi error. This changes local spectral weight and state counts. The default Jackson path does not execute the faulty expression.
+4. **TOOLS-003: lost threaded moments.** A supported `-M` override can change results solely through the decomposition. Lower priority because it requires a non-divisible count; usual divisible counts avoid this failure.
+
+CFG-002 is excluded from this correctness-bug ranking. Nothing has been sent to the author or anyone else. These are proposed communication priorities based on demonstrated numerical effects and documented paths; Ricardo reads first and the friend decides whether they care.
+
+### Executed inputs and independent answers
+
+#### CFG-001 — diagonal onsite matrix acquires coupling
+
+The cited kite.py:1261 subtracts a scalar from the entire onsite matrix. For my input `H = diag(1,3)` eV and bounds `[-1,5]`, the scale is 3 and shift is 2. The correct scaled matrix is `diag(-1/3,1/3)`; its off-diagonal entries stay zero.
+
+Decoding the actual exported HDF5 hopping datasets and undoing rescaling instead gives physical `[[1,-2],[-2,3]]` eV. Its eigenvalues are `2 ± sqrt(5)` = `[-0.2360679775,4.2360679775]` eV; the input's exact eigenvalues are `[1,3]`. This demonstrates corruption even without an original interorbital coupling. The same diagonal input with bounds `[-5,5]` and a shifted scalar onsite input both export correctly.
+
+User reachability: settings.md, Spectrum Range encourages manual energy bounds; tb_model.md, Adding lattice sites routes lattice input through pybinding. Its independently downloaded 0.9.5 matrix overload accepts onsite matrices and stores their Hermitian form; Python binding exposes `energy` as the onsite matrix. Both my diagonal matrix and the CFG-002 Hermitian matrix satisfy that representation.
+
+#### CFG-002 — observed loss, but documented real mode
+
+The claimed detection loop kite.py:1187 inspects hopping families only. My Hermitian onsite matrix is `[[0.4,0.6i],[-0.6i,-0.4]]` eV with symmetric bounds `[-2,2]`, avoiding the shift bug. Default real mode exports `diag(0.4,-0.4)` and eigenvalues `[-0.4,0.4]`, whereas the supplied matrix has eigenvalues `±sqrt(0.52)` = `±0.7211102551`. With `is_complex=True`, the same unmodified exporter preserves the entire matrix and its eigenvalues.
+
+However, settings.md:85–88 reserves complex storage for `is_complex=True` and says `is_complex=False` should be used for real symmetric Hamiltonians. The Configuration docstring also describes the flag as reflecting the Hamiltonian's type. Thus the triggering combination supplies a complex Hamiltonian to documented real mode. The automatic promotion for complex intersite hoppings is an inconsistent convenience; I found no documented promise of comprehensive automatic detection. I would describe this as possible input checking/hardening, not send it as a correctness bug in supported complex-mode use. No hardening change was made.
+
+#### TOOLS-001 — temperature supplied by file never updates beta
+
+The temperature read at line 180 leaves beta at its default, while the CLI override updates it. Both `calculate` and `calculateBlocks` consume beta.
+
+My input is an array of disconnected two-site molecules with hopping 0.35 eV and sites separated by 0.8 nm, unit cell area 1 nm², energy scale 1 and shift 0. I supply exact normalized trace moments, 128 moments, 2049 Simpson points, Fermi energy 0 and broadening 0.12 eV. In the independent scalar reference, the two eigenvalues are ±0.35; Jackson spectral projectors and exact scalar resolvents enter the eigenbasis Kubo trace. That reference never uses KITE or the supplied Gamma matrix. Its finite Jackson expansion and integration grid match the requested numerical definition; the Green resolvent is evaluated exactly.
+
+At omega = 0.7 eV, requested `kBT=0.3` eV:
+
+| Calculation | Conductivity, e²/h |
+|---|---:|
+| Independent hot reference | `3.00226715596 + 0.253847984606i` |
+| Unpatched, temperature from file | `5.73209 + 0.532202i` |
+| Independent cold reference, kBT=0.001 | `5.73209055841 + 0.532202465137i` |
+| Unpatched, explicit CLI `-T 0.3` | `3.00227 + 0.253848i` |
+
+The hot-file and cold-file outputs are identical at all three frequencies, and both regular and block branches show the same result. Explicit CLI temperature agrees with the independent hot reference at saved-text precision. Both hot runs print `Temperature: 0.3`.
+
+User reachability: default usage says the file alone suffices; calculation.md:66–67 defines the temperature of the Fermi distribution; FAQ specifies energy units. This is not an intended default override, and is not a Kelvin-conversion claim.
+
+The first NumPy reference contraction emitted BLAS floating-point warnings despite finite numbers. I replaced that contraction with ordinary scalar math, recomputed it, and reran the optical fixture without warnings. The initial log is retained as console-initial.txt.
+
+#### TOOLS-002 — Green LDOS normalization
+
+The cited ldos.cpp:277 accumulates minus the imaginary Green coefficient without division by pi. My exact input is a single local level at 0.25 eV, 256 moments, one thread and broadening eta = 0.15 eV. The independently correct density is the normalized Lorentzian `eta / (pi * ((E-0.25)^2 + eta^2))`.
+
+| Energy, eV | Unpatched LDOS, 1/eV | Correct LDOS, 1/eV |
+|---:|---:|---:|
+| -0.25 | 0.550459 | 0.175216451110 |
+| 0.25 | 6.66667 | 2.122065907892 |
+| 0.50 | 1.76471 | 0.561723328560 |
+
+The discrepancy is pi to saved-text precision, and not a finite-expansion effect. One thread isolates this claim from the excluded suspected Green indexing issue. User reachability: both tools help and API documentation explicitly offer `--LDOS -K green eta`; LDOS denotes a spectral density, and the default Jackson expression already includes its pi normalization.
+
+#### TOOLS-003 — a supported override loses a nonzero last moment
+
+At ldos.cpp:245, each thread takes `floor(M/P)` terms with no remainder assignment. My stored input contains 32 exact moments for a zero-energy local level, `mu_n = cos(n*pi/2)`. Both lattice sizes and decomposition obey the documented TILE=8 constraint. I request seven moments with the documented `--LDOS -M 7` override.
+
+At E=0, the complete finite Jackson sum is `1.007200458900` 1/eV. The unpatched result is `1.0072` on one thread and `0.983893` on two threads. The missing n=6 term is nonzero. A six-moment control produces `0.872882` on both thread counts. This tests the post-processor override, without asking the core to generate an odd number of moments.
+
+User reachability: tools API and help expose the override without a thread-divisibility restriction; the code checks that it does not exceed stored moments, but imposes no divisibility rule. Decomposition documentation recommends multiple partitions. Reusing moments with different post-processing parameters is an explicit advertised workflow.
+
+### Upstream status
+
+Read-only `gh api` requests fetched all 36 issue/PR entries, 28 PR records, 19 issue comments, one review comment, releases, branch heads and commit history. Snapshots and extracted text are in evidence/. There were no open issues or PRs at fetch time. Reviewed numerical/build PR diffs include #4, #5, #6, #9, and recent #35–37. None of the four surviving failure mechanisms appeared in the reviewed discussions or diffs. Issue #17 concerns server-dependent DOS/DC NaNs and supplies no matching optical/LDOS/exporter diagnosis; it is not evidence that these specific bugs are known.
+
+Latest release is [1.1](https://github.com/quantum-kite/kite/releases/tag/1.1), published 2025-04-29, commit `078c23511bf63b6478af39f6a44d6e03828ec09a`. Master still points to the tested pin. `kite-develop` is `304d127c7f3e6d6fed530fd14dd2e90ebc9f5250`; `test-h` is `2b55aa088c09997ea7d5d956c0e1132a73f43218`. The affected three source files are byte-identical in all four versions, as recorded in source-versions.json; all core and tools source also has no diff from release 1.1 to the pin. `gh-pages` contains the generated documentation site. No current fix was found. This is a public-history check, not a claim about private reports or forks.
+
+### Build limits and replay
+
+KITEx failed two honest attempts: missing dependencies first, then Apple libc++ lacking `std::cyl_bessel_j` at `SimulationGaussianWavePacket.cpp:154`. The core was not modified or retried after that. KITE-tools built from the unchanged pin using locally built HDF5 1.14.6, Eigen 3.4.0, and the installed Homebrew libomp; an explicit libomp link was needed. Build/configuration logs, dependency hashes and Python versions are under evidence/.
+
+Pybinding 0.9.5 installation failed, finally on its bundled Eigen's `Transpositions.h:387`. Therefore CFG-001/002 execute the actual unmodified `kite.config_system` with a minimal lattice data interface verified against pybinding's source and an empty import-only `pybinding` placeholder. No pybinding function runs, no bounds are mocked, and explicit energy bounds avoid pybinding's automatic scaling entirely. These are exporter verdicts, not end-to-end pybinding/KITEx verdicts. The three TOOLS claims use the real compiled executable and independent exact supplied moments. No core recursion or stochastic-moment calculation was tested; none of the five allegations was left entirely unexercised.
+
+From this working directory, with the retained local venv and binary:
+
+```sh
+env OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=2 nice -n 10 .venv/bin/python repro/config/run.py --interface-only
+env OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=2 nice -n 10 .venv/bin/python repro/ldos/run.py build/local/KITE-tools
+env OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=2 nice -n 10 .venv/bin/python repro/optical/run.py build/local/KITE-tools
+```
+
+No hunter fix was applied or evaluated. No issues, PRs, comments, forks, messages or contacts were made. **NEW: no.** This is independent referee adjudication of existing software claims; no novel scientific result or predictive score is claimed. Predictive baselines and SBS do not apply.
+
+## Bugs: pre-referee report; final dispositions above
 
 _Source: [friends/ferreira-kite/BUGS.md](friends/ferreira-kite/BUGS.md)_
 
-## Confirmed KITE correctness bugs
+## KITE correctness bugs (four confirmed; CFG-002 excluded as intended behaviour)
 
 Pinned upstream: **a1e1f7ce6e48505ce2655315c2565446315a67e0**, default `master`, shallow clone in `upstream/kite/`.
 Latest release: **1.1**, published 2025-04-29, tag commit `078c23511bf63b6478af39f6a44d6e03828ec09a` (`sources/releases.json`, `sources/tags.json`).
-Aires Ferreira is named under **Project founders** in the pinned [README](upstream/kite/README.md), and is an author of [João et al., KITE, R. Soc. Open Sci. 7, 191809 (2020)](https://arxiv.org/abs/1910.05194), whose PDF is retained in `sources/kite-paper.pdf`.
+Aires Ferreira is named under **Project founders** in the pinned README, and is an author of [João et al., KITE, R. Soc. Open Sci. 7, 191809 (2020)](https://arxiv.org/abs/1910.05194), whose PDF is retained in `sources/kite-paper.pdf`.
 
-These five bugs were not found in the reviewed public issue/PR history. This is a local software repair result, **not a novel scientific result: NEW: no**. No paper number was improved, stated scientific open problem settled, or new-data prediction tested. No predictive model or predictive score is reported; trivial/simple/model baselines and SBS are inapplicable.
+These five reports were not found in the reviewed public issue/PR history. This is a local software repair result, **not a novel scientific result: NEW: no**. No paper number was improved, stated scientific open problem settled, or new-data prediction tested. No predictive model or predictive score is reported; trivial/simple/model baselines and SBS are inapplicable.
 
 Each section links a runnable repro with pinned output, independently computed correct output, repaired output, a minimal root-relative git patch, and a normal-input regression comparison. Independent numerical checks are separately written Python/NumPy implementations, not a second person or an external referee. Nothing was sent or published.
 
@@ -1754,7 +1849,7 @@ Each section links a runnable repro with pinned output, independently computed c
 - **Wrong:** subtracting the scalar energy shift broadcasts it to every element of a multi-orbital onsite matrix. Rescaling requires subtraction of shift × identity.
 - **Before → correct/after:** onsite H=`[[1,.25],[.25,2]]` eV, bounds [-1,5]; exported physical eigenvalues `[-0.3200274723,3.3200274723]` → `[0.9409830056,2.0590169944]` eV.
 - **Effect:** nonzero shifts silently change hybridization, splittings and the resulting spectral/transport problem; automatic asymmetric bounds can also produce nonzero shifts, although that route was not exercised.
-- **Evidence:** [repro and reasoning](repro/KITE-CFG-001/README.md), [before](repro/KITE-CFG-001/before.txt), [after](repro/KITE-CFG-001/after.txt), [patch](repro/KITE-CFG-001/patch.diff).
+- **Evidence:** repro and reasoning, before, after, patch (`repro/KITE-CFG-001/`).
 - **Independent check/control:** decode the actual HDF5 hopping representation, invert rescaling and diagonalize in plain NumPy. Zero-shift and one-orbital controls retain identical dataset values.
 - **Confidence:** high for the exporter with explicit bounds. Pybinding itself was not installed; its import is stubbed, no API calls are made, and the fixture uses upstream `lattice.py` with the same matrix representation as pybinding's retained source.
 - **Reason:** [KITE Eq. (2.14)](https://arxiv.org/abs/1910.05194); [Weiße et al. (2006), Eq. (24)](https://arxiv.org/abs/cond-mat/0504627).
@@ -1765,7 +1860,7 @@ Each section links a runnable repro with pinned output, independently computed c
 - **Wrong:** automatic complex detection checks intersite hoppings but ignores onsite matrices. Default `is_complex=False` silently drops imaginary onsite entries.
 - **Before → correct/after:** Hermitian H=`[[0,-i],[i,0]]` eV yields eigenvalues `[0,0]` → `[-1,1]` eV; Tr(H²) `0` → `2` eV². `IS_COMPLEX` becomes 1.
 - **Effect:** onsite spin/orbital terms can be removed, changing the Hamiltonian rather than its numerical precision. Explicit `is_complex=True` avoids this bug.
-- **Evidence:** [repro and reasoning](repro/KITE-CFG-002/README.md), [before](repro/KITE-CFG-002/before.txt), [after](repro/KITE-CFG-002/after.txt), [patch](repro/KITE-CFG-002/patch.diff).
+- **Evidence:** repro and reasoning, before, after, patch (`repro/KITE-CFG-002/`).
 - **Independent check/control:** independent HDF5 decoding, NumPy eigvalsh and the identity sigma_y²=I. Explicit-complex and ordinary real controls have identical HDF5 dataset values before/after.
 - **Confidence:** high for the explicit-bounds exporter; same import-only pybinding limitation as CFG-001.
 - **Reason:** Hermitian-matrix spectral decomposition; [KITE Sec. 2(a)](https://arxiv.org/abs/1910.05194).
@@ -1776,7 +1871,7 @@ Each section links a runnable repro with pinned output, independently computed c
 - **Wrong:** reading the HDF5 temperature does not refresh beta=1/temperature. Without CLI `-T`, both optical calculation branches use the default k_B*T=0.001 eV, regardless of the stored value.
 - **Before → correct/after:** two-site molecule at omega=0.6 eV and requested k_B*T=0.2 eV: sigma `4.78760 + 0.782720i` → `3.02977 + 0.480812i` in e²/h. Independent result `3.0297736361 + 0.4808121743i`.
 - **Effect:** temperature dependence and thermal occupation of optical transitions are wrong while the program prints the requested temperature. No Kelvin-conversion bug is claimed: temperature is k_B*T in energy units, per the pinned FAQ.
-- **Evidence:** [repro and parameters](repro/KITE-TOOLS-001/README.md), [pinned spectrum](repro/KITE-TOOLS-001/before/hot.dat), [repaired spectrum](repro/KITE-TOOLS-001/after/hot.dat), [independent numbers](repro/KITE-TOOLS-001/correct.json), [patch](repro/KITE-TOOLS-001/patch.diff).
+- **Evidence:** repro and parameters, pinned spectrum, repaired spectrum, independent numbers, patch (`repro/KITE-TOOLS-001/`).
 - **Independent check/control:** exact NumPy eigensystem, finite Jackson spectral projectors and direct scalar resolvents in the Kubo trace; matched moment count, grid and broadening. Default-temperature control is byte-identical.
 - **Confidence:** high. Real compiled post-processor, no mocks. The independent calculation agrees at all three frequencies within the precision of saved text.
 - **Reason:** Fermi occupation definition and [KITE Eq. (2.23)](https://arxiv.org/abs/1910.05194).
@@ -1787,7 +1882,7 @@ Each section links a runnable repro with pinned output, independently computed c
 - **Wrong:** Green LDOS uses −Im(G), rather than −Im(G)/pi; total DOS already contains the factor.
 - **Before → correct/after:** zero-energy isolated level, eta=0.2 eV: rho(0) `5` → `1.59155` 1/eV; exact `1.591549430918953`. The other tested energies show the same factor of pi.
 - **Effect:** absolute local spectral weight and integrated state counts are too large by pi for the `green` kernel. This is distinct from Lorentz damping coefficients.
-- **Evidence:** [repro and definition](repro/KITE-TOOLS-002/README.md), [before](repro/KITE-TOOLS-002/before.txt), [after](repro/KITE-TOOLS-002/after.txt), [patch](repro/KITE-TOOLS-002/patch.diff).
+- **Evidence:** repro and definition, before, after, patch (`repro/KITE-TOOLS-002/`).
 - **Independent check/control:** NumPy spectral decomposition and the defining resolvent/Lorentzian. One thread, 128 moments; truncation is negligible at this broadening. Jackson-kernel files are byte-identical.
 - **Confidence:** high; actual compiled post-processor, agreement at all three energies.
 - **Reason:** spectral-density definition; [KITE Eqs. (2.19)–(2.20), Fig. 1(a)](https://arxiv.org/abs/1910.05194).
@@ -1798,7 +1893,7 @@ Each section links a runnable repro with pinned output, independently computed c
 - **Wrong:** P threads each receive floor(M/P) moments; remaining moments are discarded. No divisibility restriction is enforced for the supported `-M` override.
 - **Before → correct/after:** five-moment Jackson LDOS of an isolated zero-energy level: one thread `0.742723`, two threads `0.689671` → both `0.742723` 1/eV; independent `0.7427230677621784`.
 - **Effect:** changing decomposition/thread count changes spectral results; if threads outnumber moments, all contributions can be lost. The demonstrated case uses only two threads.
-- **Evidence:** [repro and reasoning](repro/KITE-TOOLS-003/README.md), [before](repro/KITE-TOOLS-003/before.txt), [after](repro/KITE-TOOLS-003/after.txt), [patch](repro/KITE-TOOLS-003/patch.diff).
+- **Evidence:** repro and reasoning, before, after, patch (`repro/KITE-TOOLS-003/`).
 - **Independent check/control:** NumPy eigensystem and complete finite Jackson expansion. Input contains 128 moments, with a legal `-M 5` post-processing override, avoiding any untested odd-moment core calculation. Four-moment two-thread output is byte-identical.
 - **Confidence:** high for Jackson LDOS, actual compiled post-processor. Separate Green indexing concern below remains outside this fix.
 - **Reason:** finite Chebyshev/Jackson expansion, [Weiße et al., Eqs. (71)–(72)](https://arxiv.org/abs/cond-mat/0504627).
@@ -1822,115 +1917,11 @@ Read all 36 public issue/PR entries, all 28 PR bodies, all 19 issue comments and
 
 ### Scope and use
 
-Use [combined.patch](combined.patch) to apply all five repairs together; the two standalone LDOS patches overlap, so avoid concatenating their diffs. The combined patch applies cleanly to the pin and its compiled post-processing plus both config repros agree with the isolated repairs (`checks/combined/check-output.txt`).
+Use [combined.patch](friends/ferreira-kite/combined.patch) to apply all five repairs together; the two standalone LDOS patches overlap, so avoid concatenating their diffs. The combined patch applies cleanly to the pin and its compiled post-processing plus both config repros agree with the isolated repairs (`checks/combined/check-output.txt`).
 
 The normal chain, square-lattice and graphene DOS checks use independent exact spectra and a matched 64-moment Jackson expansion (`checks/dos_closed_forms.py`, `checks/dos/results.json`). The zero-current atomic optical check returns zero (`checks/zero_current/optcond.dat`). These validate the post-processing layer with exact supplied moments; they do **not** validate stochastic moments or the KITEx recursion.
 
 KITEx failed two honest attempts: missing Eigen/OpenMP headers first; then Apple libc++ lacks std::cyl_bessel_j in the wavepacket translation unit. Core build work stopped. KITE-tools compiled, then linked successfully with explicit installed libomp. Dependencies were built/installed only inside this working directory, apart from reuse of already-installed Homebrew libomp. Python exporter tests do not call pybinding. Source remains unchanged at the pin; all changes are local diff artifacts and patched test copies. No issue, PR, fork, comment, or contact was made.
-
-## Verdicts
-
-_Source: [friends/ferreira-kite/VERDICTS.md](friends/ferreira-kite/VERDICTS.md)_
-
-## Independent KITE referee verdicts
-
-Refereed locally on 2026-11-06 against fresh clone commit `a1e1f7ce6e48505ce2655315c2565446315a67e0`. Only the hunter's claim document and report were read; none of their scripts, patches, fixtures or output files was run, imported or copied. The suspected list was excluded.
-
-| ID | Verdict | My repro path | Effect on users' results |
-|---|---|---|---|
-| KITE-CFG-001 | **CONFIRMED** | [repro/config/run.py](repro/config/run.py), [result](repro/config/shifted_diagonal.json) | Nonzero energy shift invents interorbital couplings, even for diagonal onsite matrices, changing the exported Hamiltonian and spectrum. Exporter-only execution; pybinding limitation below. |
-| KITE-CFG-002 | **INTENDED** | [repro/config/run.py](repro/config/run.py), [default](repro/config/imaginary_default.json), [explicit complex](repro/config/imaginary_explicit_complex.json) | Imaginary onsite entries are lost in documented real-only mode; setting `is_complex=True` preserves them. Incomplete automatic detection is a safeguard inconsistency, not a demonstrated violation of the documented mode contract. |
-| KITE-TOOLS-001 | **CONFIRMED** | [repro/optical/run.py](repro/optical/run.py), [scalar reference](repro/optical/scalar_reference.py), [results](repro/optical/results.json) | File temperature is printed but ignored in both optical calculation branches, so finite-temperature spectra use the default cold occupations. |
-| KITE-TOOLS-002 | **CONFIRMED** | [repro/ldos/run.py](repro/ldos/run.py), [results](repro/ldos/results.json) | The documented Green LDOS kernel returns spectral density too large by a factor of pi. |
-| KITE-TOOLS-003 | **CONFIRMED** | [repro/ldos/run.py](repro/ldos/run.py), [results](repro/ldos/results.json) | A non-divisible moment count silently loses its remainder on multiple threads, making Jackson LDOS depend on decomposition. Divisible counts are unaffected in the control. |
-
-### Ranked findings
-
-1. **TOOLS-001: ignored optical temperature.** Affects the ordinary file-driven workflow and both calculation branches, while displaying the requested temperature. Explicit CLI `-T` avoids it. The numerical effect is substantial in the independent molecule below.
-2. **CFG-001: onsite energy rescaling changes the physical model.** Affects valid multi-orbital matrices whenever the energy shift is nonzero; even zero off-diagonal entries become couplings. Manual asymmetric bounds are explicitly documented. Zero shift and single-orbital inputs passed the controls.
-3. **TOOLS-002: absolute Green LDOS normalization.** Every tested energy on the supported `green` path has the same factor-of-pi error. This changes local spectral weight and state counts. The default Jackson path does not execute the faulty expression.
-4. **TOOLS-003: lost threaded moments.** A supported `-M` override can change results solely through the decomposition. Lower priority because it requires a non-divisible count; usual divisible counts avoid this failure.
-
-CFG-002 is excluded from this correctness-bug ranking. Nothing has been sent to the author or anyone else. These are proposed communication priorities based on demonstrated numerical effects and documented paths; Ricardo reads first and the friend decides whether they care.
-
-### Executed inputs and independent answers
-
-#### CFG-001 — diagonal onsite matrix acquires coupling
-
-The cited [kite.py:1261](upstream/kite/kite.py#L1261) subtracts a scalar from the entire onsite matrix. For my input `H = diag(1,3)` eV and bounds `[-1,5]`, the scale is 3 and shift is 2. The correct scaled matrix is `diag(-1/3,1/3)`; its off-diagonal entries stay zero.
-
-Decoding the actual exported HDF5 hopping datasets and undoing rescaling instead gives physical `[[1,-2],[-2,3]]` eV. Its eigenvalues are `2 ± sqrt(5)` = `[-0.2360679775,4.2360679775]` eV; the input's exact eigenvalues are `[1,3]`. This demonstrates corruption even without an original interorbital coupling. The same diagonal input with bounds `[-5,5]` and a shifted scalar onsite input both export correctly.
-
-User reachability: [settings.md, Spectrum Range](upstream/kite/docs/documentation/settings.md#spectrum-range) encourages manual energy bounds; [tb_model.md, Adding lattice sites](upstream/kite/docs/documentation/tb_model.md#adding-lattice-sites) routes lattice input through pybinding. Its independently downloaded 0.9.5 [matrix overload](deps/pybinding-0.9.5/cppcore/src/Lattice.cpp#L38) accepts onsite matrices and stores their Hermitian form; [Python binding](deps/pybinding-0.9.5/cppmodule/src/Lattice.cpp#L9) exposes `energy` as the onsite matrix. Both my diagonal matrix and the CFG-002 Hermitian matrix satisfy that representation.
-
-#### CFG-002 — observed loss, but documented real mode
-
-The claimed detection loop [kite.py:1187](upstream/kite/kite.py#L1187) inspects hopping families only. My Hermitian onsite matrix is `[[0.4,0.6i],[-0.6i,-0.4]]` eV with symmetric bounds `[-2,2]`, avoiding the shift bug. Default real mode exports `diag(0.4,-0.4)` and eigenvalues `[-0.4,0.4]`, whereas the supplied matrix has eigenvalues `±sqrt(0.52)` = `±0.7211102551`. With `is_complex=True`, the same unmodified exporter preserves the entire matrix and its eigenvalues.
-
-However, [settings.md:85–88](upstream/kite/docs/documentation/settings.md#complex) reserves complex storage for `is_complex=True` and says `is_complex=False` should be used for real symmetric Hamiltonians. The [Configuration docstring](upstream/kite/kite.py#L775) also describes the flag as reflecting the Hamiltonian's type. Thus the triggering combination supplies a complex Hamiltonian to documented real mode. The automatic promotion for complex intersite hoppings is an inconsistent convenience; I found no documented promise of comprehensive automatic detection. I would describe this as possible input checking/hardening, not send it as a correctness bug in supported complex-mode use. No hardening change was made.
-
-#### TOOLS-001 — temperature supplied by file never updates beta
-
-The [temperature read at line 180](upstream/kite/tools/Src/OptCond_1order/conductivity_optical.cpp#L180) leaves beta at its default, while [the CLI override](upstream/kite/tools/Src/OptCond_1order/conductivity_optical.cpp#L258) updates it. Both `calculate` and `calculateBlocks` consume beta.
-
-My input is an array of disconnected two-site molecules with hopping 0.35 eV and sites separated by 0.8 nm, unit cell area 1 nm², energy scale 1 and shift 0. I supply exact normalized trace moments, 128 moments, 2049 Simpson points, Fermi energy 0 and broadening 0.12 eV. In the independent scalar reference, the two eigenvalues are ±0.35; Jackson spectral projectors and exact scalar resolvents enter the eigenbasis Kubo trace. That reference never uses KITE or the supplied Gamma matrix. Its finite Jackson expansion and integration grid match the requested numerical definition; the Green resolvent is evaluated exactly.
-
-At omega = 0.7 eV, requested `kBT=0.3` eV:
-
-| Calculation | Conductivity, e²/h |
-|---|---:|
-| Independent hot reference | `3.00226715596 + 0.253847984606i` |
-| Unpatched, temperature from file | `5.73209 + 0.532202i` |
-| Independent cold reference, kBT=0.001 | `5.73209055841 + 0.532202465137i` |
-| Unpatched, explicit CLI `-T 0.3` | `3.00227 + 0.253848i` |
-
-The hot-file and cold-file outputs are identical at all three frequencies, and both regular and block branches show the same result. Explicit CLI temperature agrees with the independent hot reference at saved-text precision. Both hot runs print `Temperature: 0.3`.
-
-User reachability: [default usage](upstream/kite/docs/api/kite-tools.md#default-usage) says the file alone suffices; [calculation.md:66–67](upstream/kite/docs/documentation/calculation.md#parameters) defines the temperature of the Fermi distribution; [FAQ](upstream/kite/docs/faq.md#what-are-the-units-of-the-temperature) specifies energy units. This is not an intended default override, and is not a Kelvin-conversion claim.
-
-The first NumPy reference contraction emitted BLAS floating-point warnings despite finite numbers. I replaced that contraction with [ordinary scalar math](repro/optical/scalar_reference.py), recomputed it, and reran the optical fixture without warnings. The initial log is retained as [console-initial.txt](repro/optical/console-initial.txt).
-
-#### TOOLS-002 — Green LDOS normalization
-
-The cited [ldos.cpp:277](upstream/kite/tools/Src/Spectral/ldos.cpp#L277) accumulates minus the imaginary Green coefficient without division by pi. My exact input is a single local level at 0.25 eV, 256 moments, one thread and broadening eta = 0.15 eV. The independently correct density is the normalized Lorentzian `eta / (pi * ((E-0.25)^2 + eta^2))`.
-
-| Energy, eV | Unpatched LDOS, 1/eV | Correct LDOS, 1/eV |
-|---:|---:|---:|
-| -0.25 | 0.550459 | 0.175216451110 |
-| 0.25 | 6.66667 | 2.122065907892 |
-| 0.50 | 1.76471 | 0.561723328560 |
-
-The discrepancy is pi to saved-text precision, and not a finite-expansion effect. One thread isolates this claim from the excluded suspected Green indexing issue. User reachability: both [tools help](upstream/kite/tools/Src/Tools/parse_input.cpp#L112) and [API documentation](upstream/kite/docs/api/kite-tools.md#advanced-usage) explicitly offer `--LDOS -K green eta`; LDOS denotes a spectral density, and the default Jackson expression already includes its pi normalization.
-
-#### TOOLS-003 — a supported override loses a nonzero last moment
-
-At [ldos.cpp:245](upstream/kite/tools/Src/Spectral/ldos.cpp#L245), each thread takes `floor(M/P)` terms with no remainder assignment. My stored input contains 32 exact moments for a zero-energy local level, `mu_n = cos(n*pi/2)`. Both lattice sizes and decomposition obey the documented TILE=8 constraint. I request seven moments with the documented `--LDOS -M 7` override.
-
-At E=0, the complete finite Jackson sum is `1.007200458900` 1/eV. The unpatched result is `1.0072` on one thread and `0.983893` on two threads. The missing n=6 term is nonzero. A six-moment control produces `0.872882` on both thread counts. This tests the post-processor override, without asking the core to generate an odd number of moments.
-
-User reachability: [tools API](upstream/kite/docs/api/kite-tools.md#advanced-usage) and help expose the override without a thread-divisibility restriction; the code checks that it does not exceed stored moments, but imposes no divisibility rule. [Decomposition documentation](upstream/kite/docs/documentation/settings.md#divisions) recommends multiple partitions. Reusing moments with different post-processing parameters is an explicit advertised workflow.
-
-### Upstream status
-
-Read-only `~/dev/.bin/gh api` requests fetched all 36 issue/PR entries, 28 PR records, 19 issue comments, one review comment, releases, branch heads and commit history. Snapshots and extracted text are in [evidence/](evidence/). There were no open issues or PRs at fetch time. Reviewed numerical/build PR diffs include #4, #5, #6, #9, and recent #35–37. None of the four surviving failure mechanisms appeared in the reviewed discussions or diffs. Issue #17 concerns server-dependent DOS/DC NaNs and supplies no matching optical/LDOS/exporter diagnosis; it is not evidence that these specific bugs are known.
-
-Latest release is [1.1](https://github.com/quantum-kite/kite/releases/tag/1.1), published 2025-04-29, commit `078c23511bf63b6478af39f6a44d6e03828ec09a`. Master still points to the tested pin. `kite-develop` is `304d127c7f3e6d6fed530fd14dd2e90ebc9f5250`; `test-h` is `2b55aa088c09997ea7d5d956c0e1132a73f43218`. The affected three source files are byte-identical in all four versions, as recorded in [source-versions.json](evidence/source-versions.json); all core and tools source also has no diff from release 1.1 to the pin. `gh-pages` contains the generated documentation site. No current fix was found. This is a public-history check, not a claim about private reports or forks.
-
-### Build limits and replay
-
-KITEx failed two honest attempts: missing dependencies first, then Apple libc++ lacking `std::cyl_bessel_j` at `SimulationGaussianWavePacket.cpp:154`. The core was not modified or retried after that. KITE-tools built from the unchanged pin using locally built HDF5 1.14.6, Eigen 3.4.0, and the installed Homebrew libomp; an explicit libomp link was needed. Build/configuration logs, dependency hashes and Python versions are under [evidence/](evidence/).
-
-Pybinding 0.9.5 installation failed, finally on its bundled Eigen's `Transpositions.h:387`. Therefore CFG-001/002 execute the actual unmodified `kite.config_system` with a minimal lattice data interface verified against pybinding's source and an empty import-only `pybinding` placeholder. No pybinding function runs, no bounds are mocked, and explicit energy bounds avoid pybinding's automatic scaling entirely. These are exporter verdicts, not end-to-end pybinding/KITEx verdicts. The three TOOLS claims use the real compiled executable and independent exact supplied moments. No core recursion or stochastic-moment calculation was tested; none of the five allegations was left entirely unexercised.
-
-From this working directory, with the retained local venv and binary:
-
-```sh
-env OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=2 nice -n 10 .venv/bin/python repro/config/run.py --interface-only
-env OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=2 nice -n 10 .venv/bin/python repro/ldos/run.py build/local/KITE-tools
-env OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=2 nice -n 10 .venv/bin/python repro/optical/run.py build/local/KITE-tools
-```
-
-No hunter fix was applied or evaluated. No issues, PRs, comments, forks, messages or contacts were made. **NEW: no.** This is independent referee adjudication of existing software claims; no novel scientific result or predictive score is claimed. Predictive baselines and SBS do not apply.
 
 ---
 
@@ -1944,13 +1935,13 @@ _Source: [friends/guedes-flm-identities/cg004-cubic-identities/CLAIM.md](friends
 
 ## guedes_CG004: printed cubic coordinate words do not follow from the paper's own definitions (11-05)
 
-UNVERIFIED reproduction finding from the Guedes board job (friends_board_guedes_1103, computed 11-03 on a pod, before the 11-05 incident). Not an improvement claim; a possible erratum.
+UNVERIFIED reproduction finding from the Guedes board job (computed 11-03 on a pod, before the 11-05 incident). Not an improvement claim; a possible erratum.
 
 Paper: Guedes, Oriti and Raasakka, "Quantization maps, algebra representation and non-commutative Fourier transform for Lie groups", J. Math. Phys. 54, 083508 (2013), arXiv:1301.7750. Section 5.2 (5.2.1 symmetric map, 5.2.2 Duflo map, 5.2.3 Freidel-Livine-Majid map) displays coordinate-word expansions up to cubic order, journal pp. 083508-23 and -24 (arXiv pp. 25-26). Normalization: [X_i, X_j] = 2 i epsilon_ijk X_k.
 
 Claim: the quadratic words agree in all three maps and the FLM cubics agree in all 27 cases, but the displayed symmetric cubics disagree with the map's own definition in 9 of 27 cases and the Duflo cubics in 15 of 27. Calculated minus displayed: symmetric -delta_ik X_j; Duflo -delta_ik X_j - (i/3) epsilon_ijk. Simplest witness, i=j=k=1 (no epsilon terms): symmetric displayed X1^3+X1 vs S^-1(Xhat1^3)=X1^3 by definition; Duflo displayed X1^3 vs X1^3 - X1 from D = S o j^(1/2)(d), j^(1/2) = 1 + Delta/6 + ..., Delta X1^3 = 6 X1 (also from the plane wave (t/sin t) exp(i t X1)); FLM displayed X1^3+X1 matches exp(i sin(t) X1).
 
-Evidence (read-only): friends_board_guedes_1103/REPRODUCTION_FINDING.md, its artifacts/ (baseline_verification.json, word_verification.json, control_verification.json, rendered journal/arXiv page images, source_manifest.json), search_words.py and verify_words.py.
+Evidence (read-only, in a private working copy, not in this repository): REPRODUCTION_FINDING.md, its artifacts/ (baseline_verification.json, word_verification.json, control_verification.json, rendered journal/arXiv page images, source_manifest.json), search_words.py and verify_words.py.
 
 Referee the exact claim: download the paper fresh (arXiv and, if reachable, the journal version), transcribe the displayed quadratic and cubic lists yourself, and recompute each from the paper's definitions with your own exact code (no import of the board's scripts). Check the normalization and conventions the paper actually uses (ordering, factors of i, the meaning of the displayed polynomial symbols), and whether any convention makes the displayed cubics correct. Report per map how many of the 27 cubics agree. Also check whether a published erratum or later version already corrects them. End HOLDS (the displayed cubics are wrong under the paper's own definitions), HOLDS WITH CAVEATS, or FAILS (they are right under the paper's conventions).
 
@@ -2096,11 +2087,11 @@ _Source: [friends/guedes-flm-identities/cg456-coordinate-word-table/CLAIM.md](fr
 
 ## guedes_CG456: correct coordinate-word lists through length 4 for the symmetric, Duflo and FLM maps (11-05)
 
-UNVERIFIED extension from the Guedes board job (friends_board_guedes_1103, computed 11-03 on a pod before the 11-05 incident). It follows guedes_CG004 (HOLDS; re-check SURVIVES), which found that the printed symmetric and Duflo cubics in Section 5.2 are wrong.
+UNVERIFIED extension from the Guedes board job (computed 11-03 on a pod before the 11-05 incident). It follows guedes_CG004 (HOLDS; re-check SURVIVES), which found that the printed symmetric and Duflo cubics in Section 5.2 are wrong.
 
 Paper: Guedes, Oriti and Raasakka, J. Math. Phys. 54, 083508 (2013), arXiv:1301.7750, Section 5.2 (5.2.1 symmetric, 5.2.2 Duflo, 5.2.3 Freidel-Livine-Majid). The paper displays coordinate words up to length 3 only. Normalization [Xhat_i, Xhat_j] = 2 i epsilon_ijk Xhat_k.
 
-Claim: the inverse images of all coordinate words Xhat_i1 ... Xhat_in for n = 1..4 (3 + 9 + 27 + 81 words per map) under each of the three quantization maps, as exact polynomials in commuting X_i with rational and imaginary coefficients, are as listed in friends_board_guedes_1103/artifacts/coordinate_words.json (the board computed through length 6; only lengths 1-4 are claimed here). They agree with the paper's printed words wherever the printed words are right (all quadratics, FLM cubics) and give the corrected symmetric and Duflo cubics.
+Claim: the inverse images of all coordinate words Xhat_i1 ... Xhat_in for n = 1..4 (3 + 9 + 27 + 81 words per map) under each of the three quantization maps, as exact polynomials in commuting X_i with rational and imaginary coefficients, are as listed in the board job's artifacts/coordinate_words.json, in a private working copy, not in this repository (the board computed through length 6; only lengths 1-4 are claimed here). They agree with the paper's printed words wherever the printed words are right (all quadratics, FLM cubics) and give the corrected symmetric and Duflo cubics.
 
 Not claimed: novelty of method. The maps are defined in all orders in the paper, and Kupriyanov-Vitale arXiv:1502.06544 Eq. (6.13) gives related machinery. The value is a correct, complete, checkable table through length 4.
 

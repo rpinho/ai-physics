@@ -1,0 +1,34 @@
+PAPER.md.cuts: where the new lines in PAPER.md and README.md come from.
+
+PAPER.md was written by hand (d92caec): each result section copies its folder files word for word,
+headings one level down. No generator; any content fix goes to the source file and to the copy.
+
+Review fixes (11-18, after an outside review):
+- "Some referenced evidence isn't included in this repository." <- given verbatim in the review
+  brief. Replaces, in PAPER.md, "The folders also hold the referee and certificate code." and, in
+  PAPER.md and README.md, "Each folder here holds the claim, the primary-source derivation, the
+  referee's verdict, and the checker the referee wrote without the finder's code." (Coulomb and KITE
+  have no checker code here; referee_certificate/VERIFIED.json is not in the repository.)
+- Removed from PAPER.md and README.md: "Agents make the search cheap, so what matters is whether
+  anyone else can rerun the check."
+- "# ai-physics: the record" and "This file puts the record of every result" <- the same lines
+  with "full" removed.
+- KITE: the Verdicts section comes first; the bug list follows under "## Bugs: pre-referee report;
+  final dispositions above" (heading from ai-biology PAPER.md, cc3c612).
+- KITE: "The repro, evidence, dependency and upstream folders named below aren't bundled in this
+  repository." <- new note for the KITE section; replaces nothing. Those links are kept as plain
+  text in BUGS.md, VERDICTS.md and the copy.
+- KITE BUGS.md: "# Confirmed KITE correctness bugs" -> "# KITE correctness bugs (four confirmed;
+  CFG-002 excluded as intended behaviour)", and "These five bugs were not found" -> "These five
+  reports were not found". Counting words only; matches README.md ("4 confirmed bugs", "judged
+  intended behaviour") and VERDICTS.md (CFG-002 INTENDED).
+- Private working paths were removed in the source folder files themselves, then in the copy:
+  "a private working copy; only some of these files are in this repository", "a rented compute
+  pod" / "the pod", "the pod helper script (not published)", "the local machine", "gh api".
+  Reproduction blocks made only of private helper calls keep their step names and say the pod
+  scripts aren't bundled.
+- Link targets: PHYSICS.md's "the derivation" -> friends/vieira-stampedes-seed/coulomb-follow-up/
+  DERIVATION.md and BUGS.md's combined.patch -> friends/ferreira-kite/combined.patch, in the copy
+  only (the source links already resolve from their own folder).
+- KITE BUGS.md Evidence lines: the folder each list came from is kept as plain text, e.g.
+  "(`repro/KITE-CFG-001/`)", taken from the removed link targets.

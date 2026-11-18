@@ -8,29 +8,22 @@ of center existence, is in ANALYSIS.md. The short decision is VERDICT.md.
 
 ## Reproduction
 
-All scientific work ran on the shared mscr pod, under
-`/workspace/ref_alho_O004`, with nice 10 and thread caps of one. The Mini
-performed file editing, reading and transport only. The pod initially had
+All scientific work ran on a rented compute pod, with nice 10 and thread
+caps of one. The local machine performed file editing, reading and
+transport only. The pod initially had
 163,262,689,280 bytes available, well above the 5 GB infrastructure cutoff.
 There were no other files in this task's pod directory initially.
 
-From this claim directory, run the following transport commands. The pod
+From this claim directory, run the following steps. The pod
 scripts contain the base64 payloads of the adjacent independent Python files.
 Each background script records its PID and writes its own log; poll before
 proceeding to export. No claimant search/verifier code is used.
 
-```sh
-python3 _codex/friends_podsh.py mscr pod_setup.sh 90
-python3 _codex/friends_podsh.py mscr pod_fetch.sh 90
-python3 _codex/friends_podsh.py mscr pod_run.sh 90
-python3 _codex/friends_podsh.py mscr pod_poll.sh 90
-python3 _codex/friends_podsh.py mscr pod_replay.sh 90
-python3 _codex/friends_podsh.py mscr pod_replay_poll.sh 90
-python3 _codex/friends_podsh.py mscr pod_figure.sh 90
-python3 _codex/friends_podsh.py mscr pod_units.sh 90
-python3 _codex/friends_podsh.py mscr pod_recheck.sh 90
-python3 pull_artifacts.py
-```
+Each step runs on the pod through the pod helper script: `pod_setup.sh`,
+`pod_fetch.sh`, `pod_run.sh`, `pod_poll.sh`, `pod_replay.sh`,
+`pod_replay_poll.sh`, `pod_figure.sh`, `pod_units.sh`, `pod_recheck.sh`,
+then `python3 pull_artifacts.py` locally. The pod scripts and the helper
+aren't bundled in this repository.
 
 Recorded environment: Python 3.12.3, SymPy 1.14.0, SciPy 1.18.1,
 NumPy 2.5.4, mpmath 1.3.0, pypdf 6.21.4. Initial PDF extraction emitted

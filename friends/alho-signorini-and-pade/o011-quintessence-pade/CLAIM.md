@@ -29,16 +29,16 @@ At exact true Omega_phi=2/5, inside the frozen redshift interval, the checker pr
 
 ## Local code, data and reproduction
 
-Mini directory: friends_pf_alho/O011_worker/
+Directory: a private working copy; only some of these files are in this repository.
 
 - Code: baseline.py, attempt1.py, enclosure_reference.py, verify_uniform.py, run_science.sh.
 - Exact coefficients: pod_results/attempt1_p1.0.json and attempt1_p0.1.json; auxiliary reference enclosure_p*.json.
 - Certificates: pod_results/uniform_certificate.json and uniform_certificate_p*.json; logs, environment.json, SCIENCE_COMPLETE, process_check.json and SHA256SUMS.json accompany them.
 - Data/source receipts: pod_results/baseline.json and pod_results/sources/ (original HTML, public API replies, timestamps and hashes).
 - Protocol: PLAN.md, immutable config_A1.json and ATTEMPT1.md; config SHA-256 2feaf1fea82f6b1f8ec61268a4c7828af93c90c5a8172d568fdf6abcdefa615f.
-- Argument and instructions: PROOF.md, REPORT.md, PRIOR_ART.md. REPORT.md has the exact transport/launch/poll/pull commands; all scientific work runs on mscr, nice 10, thread caps 1, at most two simultaneous potential workers.
+- Argument and instructions: PROOF.md, REPORT.md, PRIOR_ART.md. REPORT.md has the exact transport/launch/poll/pull commands; all scientific work runs on a rented compute pod, nice 10, thread caps 1, at most two simultaneous potential workers.
 
-Protected pod copy: /workspace/alho/RESULTS/O011/. Active code directory: /workspace/alho/O011/. Small-file archive and SHA-256 verification receipt are kept on the Mini. No large inputs or external/private data are required. No own scientific workers remain running.
+A protected copy and the active code directory stay on the pod. Small-file archive and SHA-256 verification receipt are kept locally. No large inputs or external/private data are required. No own scientific workers remain running.
 
 ## Worries for the referee and taste stage
 

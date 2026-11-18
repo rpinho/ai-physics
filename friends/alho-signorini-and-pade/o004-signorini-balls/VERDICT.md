@@ -15,7 +15,7 @@ Four baseline runs reproduced R_s=1.232623252189 and 1.077019682654.
 These are computed dimensionless radii, not numbers tabulated in Figure 8;
 unit conversion gives approximately 0.6023 and 0.5262, consistent with its plots.
 The plot's unit convention is inferred; the physical scaling is exact.
-Forty-two stress cases and no-gravity controls were also run on mscr.
+Forty-two stress cases and no-gravity controls were also run on the rented compute pod.
 One coarse numerical negative-pressure flag disappeared under tighter and
 70-digit replay; the original flag and all evidence are retained locally.
 

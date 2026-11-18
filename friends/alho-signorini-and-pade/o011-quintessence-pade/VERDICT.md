@@ -3,7 +3,7 @@ Referee: gpt-6.1-sol
 
 The stated uniform error improvement survives an independent reconstruction for both p=1 and p=0.1, Omega_phi0=0.68, dust plus scalar, and the entire closed interval 0<=z<=6. Omega_m and E=H/H0 are the same quantities used in the paper.
 
-I wrote and ran independent rational-series, Padé, Friedmann/Klein–Gordon and Arb verification code on mscr; no claimant search or verifier code was imported. Exact order-12 coefficients matched. The 192-bit continuous audit passed 6067/9112 error cells and two 2048-cell tracker tubes.
+I wrote and ran independent rational-series, Padé, Friedmann/Klein–Gordon and Arb verification code on a rented compute pod; no claimant search or verifier code was imported. Exact order-12 coefficients matched. The 192-bit continuous audit passed 6067/9112 error cells and two 2048-cell tracker tubes.
 
 My certified relative upper bounds (fractions, not percentages) are: p=1, Omega_m<3.294e-6 and E<1.647e-6; p=0.1, Omega_m<3.010e-6 and E<1.505e-6. These imply every submitted limit. The much smaller floating maxima remain numerical diagnostics.
 

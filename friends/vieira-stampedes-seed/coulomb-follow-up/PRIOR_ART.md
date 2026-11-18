@@ -48,7 +48,7 @@ Stampedes I/II were also read in full. The 2021 mirror-excitation methods paper 
 
 ## Forward citations: what was actually checked
 
-1. `~/.local/bin/cited-by '10.1007/JHEP07(2022)017'` was run normally. Its OpenAlex citing-work request failed after its built-in retries with **HTTP 429**; data/cited_by.txt preserves the error. No account or key was created and no positive result is attributed to this tool.
+1. A local citation helper, `cited-by '10.1007/JHEP07(2022)017'`, was run normally. Its OpenAlex citing-work request failed after its built-in retries with **HTTP 429**; data/cited_by.txt preserves the error. No account or key was created and no positive result is attributed to this tool.
 2. [INSPIRE Stampedes I record 1975636](https://inspirehep.net/literature/1975636) and the API query `refersto:recid:1975636` returned **16 citing records**, all on one page, saved in data/inspire_citations.json. All titles and abstracts were inspected; available full texts were screened for equivalent special functions and relevant passages. The closest papers were read at the locations below. This is not a claim of full reading of every citing thesis or 120-page paper.
 3. [Crossref's DOI record](https://api.crossref.org/works/10.1007/JHEP07(2022)017) reports **12** incoming references. It supplies no reverse citing-title list in this record; its outgoing reference list is not a forward-citation check. data/crossref_stampedesI.json preserves the response. The difference from INSPIRE reflects index coverage, not four proven missing papers.
 

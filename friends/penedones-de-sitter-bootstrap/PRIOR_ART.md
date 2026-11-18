@@ -13,7 +13,7 @@ Primary-source, public-code, recent-paper, public-community and agent-repository
 - There is no identified official live leaderboard for this toy bound; the primary paper is the comparison source. The claimant's retained wider citation and repository searches are read-only supporting data, not independently exhaustive evidence.
 
 ## Baseline status
-Independent code written directly from primary gamma/hypergeometric definitions, with no claimant module imports, reproduces 6.431737260572546574... and 2.386377515308742831... . All numerical evaluation runs on mscr. The four-term witness specifies an effective partial-wave weight; reconstructing the original crossing test requires a(z)=1/2 [z(1-z)]^(-1/4)P(z), rather than treating that effective weight as a(z).
+Independent code written directly from primary gamma/hypergeometric definitions, with no claimant module imports, reproduces 6.431737260572546574... and 2.386377515308742831... . All numerical evaluation runs on a rented compute pod. The four-term witness specifies an effective partial-wave weight; reconstructing the original crossing test requires a(z)=1/2 [z(1-z)]^(-1/4)P(z), rather than treating that effective weight as a(z).
 
 ## Completed independent recheck, 2026-11-03 20:54 UTC
 
@@ -43,7 +43,7 @@ Independent code written directly from primary gamma/hypergeometric definitions,
    "searched_at": "2026-11-03T14:42:26+00:00",
    "hits": [],
    "note": "Captured X search (browser, 2026-11-03T14:42:26+00:00) for the friend topic; 0 posts. Friend-level capture, not a per-target X search.",
-   "capture_path": "friends_queue/x_capture/frozen/penedones_0786126ddc59.jsonl",
+   "capture_path": "private capture, not in this repository",
    "capture_sha256": "0786126ddc59861bc02b99bc19bdf0488f4d68953db3840566a4311d07ab5da6"
   },
   "papers": {

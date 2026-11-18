@@ -85,10 +85,10 @@ pre-construction plan/config as protocol evidence; their local timestamps are
 not an independently attested historical record. This does not affect a
 deterministic full-interval certificate.
 
-Reproduce on mscr through the supplied helper:
+Reproduce on a rented compute pod through the pod helper script (not published):
 `python3 transport.py push` launches referee.py; `python3 transport.py push interval_ref.py`
 launches the interval audit. Poll with the helper and poll.sh, then
-`python3 transport.py pull`. All science computation is on mscr, nice 10,
+`python3 transport.py pull`. All science computation is on the pod, nice 10,
 BLAS thread caps 1, with two interval workers for the two potentials.
 Sources and exact receipts are copied under pod_results/.
 
@@ -108,7 +108,7 @@ Alho's public 2024 talk already discuss higher-degree Padé constructions.
 The later review retains [1/1]. No novelty, priority or author-interest
 judgment is made. Public-search scope and access gaps are in PRIOR_ART.md.
 
-The scientific code ran only on mscr, at most two simultaneous CPU workers.
+The scientific code ran only on the pod, at most two simultaneous CPU workers.
 Startup free disk was 87.7 GB. Before cleanup, all 59 files in the pod's
 SHA256SUMS.json manifest (4,799,262 bytes) were copied here and hash checked;
 COPY_RECEIPT.json records this check. Public HTML/PDF/plot/API responses,

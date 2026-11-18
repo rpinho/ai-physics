@@ -28,7 +28,7 @@ PROOF.md supplies an all-order argument independent of coefficient fitting: the 
 
 ## Verification and controls
 
-All computation ran on pod mscr, nice 10, at most 8 cores, thread counts 1. The Mini performed editing and transport only.
+All computation ran on a rented compute pod, nice 10, at most 8 cores, thread counts 1. The local machine performed editing and transport only.
 
 - Baseline: 30/30 published coefficient entries; 108 baseline and 156 extension Hamiltonian matrix elements agree exactly with independently coded determinant coefficients. Extensions cover bridge 3 through loop 12 and bridge 4 through loop 14, with J=1..6. These finite J checks are not an all-spin theorem.
 - A2: 650/650 independent exact rational seed coefficient checks through L^24 at B=0,...,25,pi^2=1. The public full determinant includes all contributing particle sectors and does not import the proposed ODE. The separate verifier uses only the frozen recurrence. Degree bounds and weighted homogeneity turn these evaluations into polynomial identities, not statistical validation.
@@ -41,7 +41,7 @@ The first three displayed source corrections informed A2 and are explicitly fitt
 
 ## Files and exact reproduction
 
-Mini root: `friends_pf_vieira/X004_worker/`.
+Root: a private working copy; only some of these files are in this repository.
 
 - `PROOF.md`, `REPORT.md`, `PLAN.md`, immutable `ATTEMPT1.md`, `ATTEMPT2.md`, `config_A1.json`, `config_A2.json`.
 - A1 code: `determinant.py`, `hamiltonian.py`, `compare.py`.
@@ -49,15 +49,9 @@ Mini root: `friends_pf_vieira/X004_worker/`.
 - Exact data: `pod_results/baseline_determinant.json`, `comparison_baseline.json`, `comparison_extension.json`, `toda_det_B*.json`, `toda_verification.json`, `bridge_B*.json`, `bridge_verification.json`, `proof_verification.json`, logs and source receipts.
 - Prior art: `PRIOR_ART.md`, `SWEEP.md`, `FINAL_RECHECK.md`, `PDF_AUDIT.md`, and timestamped public-source receipts in `pod_results/`. `backup_manifest.json` records transported-file hashes.
 
-From the Mini:
+Reproduction steps, run on the pod through the pod helper script: `pod_reproduce.sh`, then `pod_poll_reproduce.sh`. The pod scripts aren't bundled in this repository.
 
-```sh
-cd friends_pf_vieira
-python3 _codex/friends_podsh.py mscr X004_worker/pod_reproduce.sh 120
-python3 _codex/friends_podsh.py mscr X004_worker/pod_poll_reproduce.sh 120
-```
-
-The payload starts a tracked nohup job under /workspace/vieira/X004. Outputs and logs go to /workspace/vieira/RESULTS/X004. Python dependencies: python-flint and SymPy. Do not run research computation on the Mini. The full command sequence is `reproduce_commands.sh`. Existing runs are complete; the reproduction payload is supplied for the separate referee.
+The payload starts a tracked nohup job on the pod, which also keeps the outputs and logs. Python dependencies: python-flint and SymPy. Do not run research computation on the local machine. The full command sequence is `reproduce_commands.sh`. Existing runs are complete; the reproduction payload is supplied for the separate referee.
 
 ## Worries and limits for the referee
 
