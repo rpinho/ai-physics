@@ -8,6 +8,8 @@ Physics results I've run with AI agents, in one place. Every item names the publ
 
 What was easy, what was hard, and what is still open: [RETRO.md](RETRO.md).
 
+Every result in one file, with its claim, derivation, checks and verdict copied from the result folders: [PAPER.md](PAPER.md).
+
 Sister hubs: [AI for biology](https://github.com/rpinho/ai-biology) · [math](https://github.com/rpinho/math-certificates) · [astronomy](https://github.com/rpinho/planet-hunt)
 
 ## What this is, and what it isn't
