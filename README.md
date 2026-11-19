@@ -66,6 +66,12 @@ Brian Armstrong's November 7 [post](https://x.com/brian_armstrong/status/2119150
   - **CG456 (HOLDS):** the corrected and extended coordinate-word table through length 4; all 360 inverse images agree exactly with an independent rebuild.
 - **Honest framing:** a correction to worked examples, not to the paper's main construction. [Claims and verdicts](friends/guedes-flm-identities/).
 
+## Pull requests
+
+<!-- auto:physics-prs -->
+53 PRs to 14 repositories: 2 merged, 46 open, 5 closed. The table is in [fixing-research-software](https://github.com/rpinho/fixing-research-software#physics-and-astronomy).
+<!-- /auto -->
+
 ## Not here
 
 - Results that have not been sent to the author they concern.
