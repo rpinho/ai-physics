@@ -4,7 +4,7 @@
 
 **AI for Physics.**
 
-Physics results I've run with AI agents, in one place. Every item names the published paper it starts from, what was asked, what we found, how an independent referee checked it, and where it is still a candidate. All of it has been sent to the author it concerns.
+Physics results I've run with AI agents, in one place. Every item names the published paper it starts from, what was asked, what I found, how an independent referee checked it, and where it is still a candidate. All of it has been sent to the author it concerns.
 
 What was easy, what was hard, and what is still open: [RETRO.md](RETRO.md).
 
