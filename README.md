@@ -69,7 +69,7 @@ Brian Armstrong's November 7 [post](https://x.com/brian_armstrong/status/2119150
 ## Pull requests
 
 <!-- auto:physics-prs -->
-56 PRs to 14 repositories: 25 merged, 25 open, 6 closed. The table is in [fixing-research-software](https://github.com/rpinho/fixing-research-software#physics-and-astronomy).
+57 PRs to 14 repositories: 26 merged, 25 open, 6 closed. The table is in [fixing-research-software](https://github.com/rpinho/fixing-research-software#physics-and-astronomy).
 <!-- /auto -->
 
 ## Not here
